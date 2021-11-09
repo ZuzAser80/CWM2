@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "cwm:item/greater_axe/stone_greater_axe"
+  }
+}

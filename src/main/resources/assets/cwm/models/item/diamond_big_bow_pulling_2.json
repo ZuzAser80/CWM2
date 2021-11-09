@@ -1,0 +1,6 @@
+{
+  "parent": "cwm:item/diamond_big_bow",
+  "textures": {
+    "layer0": "cwm:item/big_bow/diamond_big_bow_pulling_2"
+  }
+}
