@@ -40,6 +40,7 @@ public class PocketShulkerItem extends TrinketItem implements TrinketRenderer {
         if(entity.getY() <= -10)
         {
             entity.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION,1800,0, true, false));
+            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING,3600,0, true, false));
         }
         if(entity.getY() >= 255)
         {
@@ -54,8 +55,8 @@ public class PocketShulkerItem extends TrinketItem implements TrinketRenderer {
     public void render(ItemStack stack, SlotReference slotReference, EntityModel<? extends LivingEntity> contextModel, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, LivingEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
         BipedEntityModel<LivingEntity> model = this.getModel();
         model.setAngles(entity, limbAngle, limbDistance, animationProgress, animationProgress, headPitch);
-        matrices.scale(0.8F, 0.8F, 0.8F);
-        matrices.translate(0F, 0.8, -0.15);
+        matrices.scale(0.25F, 0.25F, 0.25F);
+        matrices.translate(0.75F, 2.5, -0.75F);
         TrinketRenderer.followBodyRotations(entity, model);
         VertexConsumer vertexConsumer = vertexConsumers.getBuffer(model.getLayer(TEXTURE));
         model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1);
