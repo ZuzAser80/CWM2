@@ -1,7 +1,7 @@
 {
-  "parent": "item/generated",
+  "parent": "item/handheld",
   "textures": {
-    "layer0": "cwm:item/big_bow/diamond_big_bow"
+    "layer0": "cwm:item/big_bow/stone_big_bow"
   },
   "display": {
     "thirdperson_righthand": {
@@ -30,21 +30,21 @@
       "predicate": {
         "pulling": 1
       },
-      "model": "cwm:item/diamond_big_bow_pulling_0"
+      "model": "cwm:item/stone_big_bow_pulling_0"
     },
     {
       "predicate": {
         "pulling": 1,
         "pull": 0.65
       },
-      "model": "cwm:item/diamond_big_bow_pulling_1"
+      "model": "cwm:item/stone_big_bow_pulling_1"
     },
     {
       "predicate": {
         "pulling": 1,
         "pull": 0.9
       },
-      "model": "cwm:item/diamond_big_bow_pulling_2"
+      "model": "cwm:item/stone_big_bow_pulling_2"
     }
   ]
 }

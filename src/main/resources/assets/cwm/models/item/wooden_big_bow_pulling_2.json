@@ -1,0 +1,6 @@
+{
+  "parent": "item/bow",
+  "textures": {
+    "layer0": "cwm:item/big_bow/wooden_big_bow_pulling_2"
+  }
+}

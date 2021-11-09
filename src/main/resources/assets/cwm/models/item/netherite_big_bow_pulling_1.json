@@ -1,0 +1,6 @@
+{
+  "parent": "cwm:item/netherite_big_bow",
+  "textures": {
+    "layer0": "cwm:item/big_bow/netherite_big_bow_pulling_1"
+  }
+}

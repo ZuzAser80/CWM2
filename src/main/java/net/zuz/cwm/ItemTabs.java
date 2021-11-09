@@ -3,6 +3,7 @@ package net.zuz.cwm;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class ItemTabs {
 
@@ -12,11 +13,18 @@ public class ItemTabs {
 
     final ItemGroup weapons = FabricItemGroupBuilder.build(
             id("weapons"),
-            () -> new ItemStack((Items.NETHERITE_AXE)
-    ));
+            () -> new ItemStack(Items.IRON_CHESTPLATE)
+            );
+    final ItemGroup trinkets = FabricItemGroupBuilder.build(
+            id("trinkets"),
+            () -> new ItemStack(Items.AMETHYST_BLOCK)
+            );
 
     public ItemGroup getWeapons() {
         return weapons;
+    }
+    public ItemGroup getTrinkets() {
+        return trinkets;
     }
 
 }

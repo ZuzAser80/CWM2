@@ -1,0 +1,22 @@
+{
+  "itemGroup.cwm.weapons": "CWM Weapons",
+  "itemGroup.cwm.trinkets": "CWM Trinkets",
+  "item.cwm.wooden_big_bow": "Wooden Longbow",
+  "item.cwm.stone_big_bow": "Stone Longbow",
+  "item.cwm.iron_big_bow": "Iron Longbow",
+  "item.cwm.golden_big_bow": "Golden Longbow",
+  "item.cwm.diamond_big_bow": "Diamond Longbow",
+  "item.cwm.netherite_big_bow": "Netherite Longbow",
+  "item.cwm.wooden_greater_axe": "Wooden War Axe",
+  "item.cwm.stone_greater_axe": "Stone War Axe",
+  "item.cwm.iron_greater_axe": "Iron War Axe",
+  "item.cwm.golden_greater_axe": "Golden War Axe",
+  "item.cwm.diamond_greater_axe": "Diamond War Axe",
+  "item.cwm.netherite_greater_axe": "Netherite War Axe",
+  "item.cwm.wooden_glaive": "Wooden Glaive",
+  "item.cwm.stone_glaive": "Stone Glaive",
+  "item.cwm.iron_glaive": "Iron Glaive",
+  "item.cwm.golden_glaive": "Golden Glaive",
+  "item.cwm.diamond_glaive": "Diamond Glaive",
+  "item.cwm.netherite_glaive": "Netherite Glaive"
+}

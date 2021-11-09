@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:adventure/root",
+  "display": {
+    "icon": {
+      "item": "cwm:miner_helmet"
+    },
+    "title": {
+      "translate": "Let the exploration begin!"
+    },
+    "frame": "goal",
+    "description": {
+      "translate": "Acquire any artifact"
+    }
+  },
+  "criteria": {
+    "find_artifact": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "cwm:trinkets"
+          }
+        ]
+      }
+    }
+  }
+}
