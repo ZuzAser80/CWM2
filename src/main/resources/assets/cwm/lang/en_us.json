@@ -18,5 +18,10 @@
   "item.cwm.iron_glaive": "Iron Glaive",
   "item.cwm.golden_glaive": "Golden Glaive",
   "item.cwm.diamond_glaive": "Diamond Glaive",
-  "item.cwm.netherite_glaive": "Netherite Glaive"
+  "item.cwm.netherite_glaive": "Netherite Glaive",
+  "item.cwm.shulk": "Pocket Shulker",
+  "item.cwm.magma": "Magma Cube On Shoulder",
+  "item.cwm.miner_helmet": "Miner Helmet",
+  "item.cwm.warrior_skull": "Warrior Skull",
+  "item.cwm.tnt_frog": "Tnt Frog"
 }

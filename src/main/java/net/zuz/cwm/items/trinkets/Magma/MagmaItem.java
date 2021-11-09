@@ -3,6 +3,7 @@ package net.zuz.cwm.items.trinkets.Magma;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketItem;
 import dev.emi.trinkets.api.client.TrinketRenderer;
+import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.OverlayTexture;
@@ -47,7 +48,7 @@ public class MagmaItem extends TrinketItem implements TrinketRenderer {
     }
     private static final Identifier TEXTURE = new Identifier("cwm", "textures/item/trinkets/magma_model.png");
     private BipedEntityModel<LivingEntity> model;
-
+    private static MagmaItem item;
 
     @Override
     public void render(ItemStack stack, SlotReference slotReference, EntityModel<? extends LivingEntity> contextModel, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, LivingEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
@@ -70,6 +71,10 @@ public class MagmaItem extends TrinketItem implements TrinketRenderer {
     }
     public static void registry(ItemGroup group)
     {
-        Registry.register(Registry.ITEM, new Identifier("cwm", "magma"), new MagmaItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
+        item = Registry.register(Registry.ITEM, new Identifier("cwm", "magma"), new MagmaItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
+    }
+    public static void renderregistry()
+    {
+        TrinketRendererRegistry.registerRenderer(MagmaItem.item, (TrinketRenderer) MagmaItem.item);
     }
 }

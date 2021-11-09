@@ -23,18 +23,13 @@ public class BigBow {
     }
 
     public static void registry(ItemGroup group) {
-        var items = new HashMap<Identifier, BigBowItem>();
-
-        WOODEN_BOW_ITEM = items.put(createId("wooden_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(250)));
-        STONE_BOW_ITEM = items.put(createId("stone_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(500)));
-        IRON_BOW_ITEM = items.put(createId("iron_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(750)));
-        GOLDEN_BOW_ITEM = items.put(createId("golden_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(500)));
-        DIAMOND_BOW_ITEM = items.put(createId("diamond_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(100)));
-        NETHERITE_BOW_ITEM = items.put(createId("netherite_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(1500).fireproof()));
-
-        items.forEach((id, item) -> {
-            Registry.register(Registry.ITEM, id, item);
-        });
+        WOODEN_BOW_ITEM = Registry.register(Registry.ITEM, createId("wooden_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(250)));
+        STONE_BOW_ITEM = Registry.register(Registry.ITEM, createId("stone_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(500)));
+        IRON_BOW_ITEM = Registry.register(Registry.ITEM, createId("iron_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(750)));
+        GOLDEN_BOW_ITEM = Registry.register(Registry.ITEM, createId("golden_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(500)));
+        DIAMOND_BOW_ITEM = Registry.register(Registry.ITEM, createId("diamond_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(100)));
+        NETHERITE_BOW_ITEM = Registry.register(Registry.ITEM, createId("netherite_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(1500).fireproof()));
+        
     }
     public static void predicateregisty()
     {

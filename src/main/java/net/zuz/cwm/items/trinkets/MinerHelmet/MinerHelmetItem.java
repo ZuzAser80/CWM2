@@ -3,6 +3,7 @@ package net.zuz.cwm.items.trinkets.MinerHelmet;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketItem;
 import dev.emi.trinkets.api.client.TrinketRenderer;
+import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.OverlayTexture;
@@ -20,7 +21,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
-import net.zuz.cwm.items.trinkets.WarriorSkull.WarriorSkullItem;
 
 public class MinerHelmetItem extends TrinketItem implements TrinketRenderer {
 
@@ -34,7 +34,7 @@ public class MinerHelmetItem extends TrinketItem implements TrinketRenderer {
     }
     private static final Identifier TEXTURE = new Identifier("cwm", "textures/item/trinkets/miner_helmet_model.png");
     private BipedEntityModel<LivingEntity> model;
-
+    private static MinerHelmetItem item;
 
     @Override
     @Environment(EnvType.CLIENT)
@@ -58,6 +58,10 @@ public class MinerHelmetItem extends TrinketItem implements TrinketRenderer {
     }
     public static void registry(ItemGroup group)
     {
-        Registry.register(Registry.ITEM, new Identifier("cwm", "miner_helmet"), new WarriorSkullItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
+        item = Registry.register(Registry.ITEM, new Identifier("cwm", "miner_helmet"), new MinerHelmetItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
+    }
+    public static void renderregistry()
+    {
+        TrinketRendererRegistry.registerRenderer(MinerHelmetItem.item, (TrinketRenderer) MinerHelmetItem.item);
     }
 }
