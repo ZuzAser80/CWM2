@@ -1,6 +1,7 @@
 package net.zuz.cwm;
 
 import net.fabricmc.api.ModInitializer;
+import net.zuz.cwm.items.ThrowingKnife.ThrowingKnife;
 import net.zuz.cwm.items.big_axe.BigAxe;
 import net.zuz.cwm.items.big_bow.BigBow;
 import net.zuz.cwm.items.glaive.Glaive;
@@ -22,6 +23,8 @@ public class CWMMain implements ModInitializer {
 		Glaive.registry(tabs.getWeapons());
 		BigAxe.registry(tabs.getWeapons());
 		BigBow.registry(tabs.getWeapons());
+		ThrowingKnife.registry(tabs.getWeapons());
+		ThrowingKnife.EntityInit();
 		MinerHelmetItem.registry(tabs.getTrinkets());
 		WarriorSkullItem.registry(tabs.getTrinkets());
 		TntFrogItem.registry(tabs.getTrinkets());

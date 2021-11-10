@@ -35,11 +35,15 @@ public class PocketShulkerItem extends TrinketItem implements TrinketRenderer {
         World world = entity.world;
         if(entity.getAttacking() != null)
         {
-            entity.getAttacking().addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION,400,0, true, false));
+            entity.getAttacking().addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION,400,5, true, false));
+        }
+        if(entity.getAttacker() != null)
+        {
+            entity.getAttacker().addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION,400,5, true, false));
         }
         if(entity.getY() <= -10)
         {
-            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION,1800,0, true, false));
+            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION,400,9, true, false));
             entity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING,3600,0, true, false));
         }
         if(entity.getY() >= 255)

@@ -1,6 +1,7 @@
 package net.zuz.cwm;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.zuz.cwm.items.ThrowingKnife.ThrowingKnife;
 import net.zuz.cwm.items.big_bow.BigBow;
 import net.zuz.cwm.items.trinkets.Magma.MagmaItem;
 import net.zuz.cwm.items.trinkets.MinerHelmet.MinerHelmetItem;
@@ -18,6 +19,6 @@ public class CWMClient implements ClientModInitializer {
         MinerHelmetItem.renderregistry();
         TntFrogItem.renderregistry();
         PocketShulkerItem.renderregistry();
-
+        ThrowingKnife.renderregistry();
     }
 }
