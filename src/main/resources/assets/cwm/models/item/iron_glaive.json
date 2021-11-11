@@ -2,5 +2,17 @@
   "parent": "item/handheld",
   "textures": {
     "layer0": "cwm:item/glaive/iron_glaive"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ -80, 260, -40 ],
+      "translation": [ -1, 6, 2.5 ],
+      "scale": [ 1.5, 1.5, 1.5]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ -80, -280, 40 ],
+      "translation": [ -1, 6, 2.5 ],
+      "scale": [ 1.5, 1.5, 1.5 ]
+    }
   }
 }

@@ -1,10 +1,11 @@
 package net.zuz.cwm;
 
 import net.fabricmc.api.ModInitializer;
-import net.zuz.cwm.items.ThrowingKnife.ThrowingKnife;
+import net.zuz.cwm.items.throwing_knife.ThrowingKnife;
 import net.zuz.cwm.items.big_axe.BigAxe;
 import net.zuz.cwm.items.big_bow.BigBow;
 import net.zuz.cwm.items.glaive.Glaive;
+import net.zuz.cwm.items.trinkets.EnderGlove.EnderGloveItem;
 import net.zuz.cwm.items.trinkets.Magma.MagmaItem;
 import net.zuz.cwm.items.trinkets.MinerHelmet.MinerHelmetItem;
 import net.zuz.cwm.items.trinkets.PocketShulker.PocketShulkerItem;
@@ -30,5 +31,6 @@ public class CWMMain implements ModInitializer {
 		TntFrogItem.registry(tabs.getTrinkets());
 		MagmaItem.registry(tabs.getTrinkets());
 		PocketShulkerItem.registry(tabs.getTrinkets());
+		EnderGloveItem.registry(tabs.getTrinkets());
 	}
 }

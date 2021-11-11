@@ -1,4 +1,4 @@
-package net.zuz.cwm.items.ThrowingKnife;
+package net.zuz.cwm.items.throwing_knife;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;

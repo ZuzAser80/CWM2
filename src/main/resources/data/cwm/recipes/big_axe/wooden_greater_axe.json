@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " XX",
+    " #X",
+    "#  "
+  ],
+  "key": {
+    "#": {
+      "item": "cwm:polearm_handle"
+    },
+    "X": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "cwm:wooden_greater_axe"
+  }
+}

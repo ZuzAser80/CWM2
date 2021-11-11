@@ -1,4 +1,4 @@
-package net.zuz.cwm.items.ThrowingKnife;
+package net.zuz.cwm.items.throwing_knife;
 
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;

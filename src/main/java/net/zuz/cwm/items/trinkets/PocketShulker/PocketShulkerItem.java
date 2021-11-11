@@ -37,18 +37,9 @@ public class PocketShulkerItem extends TrinketItem implements TrinketRenderer {
         {
             entity.getAttacking().addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION,400,5, true, false));
         }
-        if(entity.getAttacker() != null)
-        {
-            entity.getAttacker().addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION,400,5, true, false));
-        }
         if(entity.getY() <= -10)
         {
-            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION,400,9, true, false));
-            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING,3600,0, true, false));
-        }
-        if(entity.getY() >= 255)
-        {
-            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING,1800,0, true, false));
+            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION,1600,3, true, false));
         }
     }
     private static final Identifier TEXTURE = new Identifier("cwm", "textures/item/trinkets/shulk_model.png");
