@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " XX",
+    " #X",
+    "#  "
+  ],
+  "key": {
+    "#": {
+      "item": "cwm:polearm_handle"
+    },
+    "X": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "cwm:golden_greater_axe"
+  }
+}

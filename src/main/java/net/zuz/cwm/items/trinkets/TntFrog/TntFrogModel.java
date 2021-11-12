@@ -18,13 +18,8 @@ public class TntFrogModel extends BipedEntityModel {
         this.cube_r3 = this.mainPart.getChild("cube_r3");
         this.cube_r2 = this.mainPart.getChild("cube_r2");
         this.cube_r1 = this.mainPart.getChild("cube_r1");
+        this.setVisible(false);
         this.head.visible = true;
-        this.body.visible = false;
-        this.leftArm.visible = false;
-        this.rightArm.visible = false;
-        this.leftLeg.visible = false;
-        this.rightLeg.visible = false;
-        this.hat.visible = false;
     }
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = BipedEntityModel.getModelData(Dilation.NONE, 0f);

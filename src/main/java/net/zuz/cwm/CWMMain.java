@@ -1,11 +1,13 @@
 package net.zuz.cwm;
 
 import net.fabricmc.api.ModInitializer;
+import net.zuz.cwm.items.materials.Materials;
 import net.zuz.cwm.items.throwing_knife.ThrowingKnife;
 import net.zuz.cwm.items.big_axe.BigAxe;
 import net.zuz.cwm.items.big_bow.BigBow;
 import net.zuz.cwm.items.glaive.Glaive;
-import net.zuz.cwm.items.trinkets.EnderGlove.EnderGloveItem;
+import net.zuz.cwm.items.trinkets.BookOfDefence.BookOfDefenceItem;
+import net.zuz.cwm.items.trinkets.GoldenBelt.GoldenBeltItem;
 import net.zuz.cwm.items.trinkets.Magma.MagmaItem;
 import net.zuz.cwm.items.trinkets.MinerHelmet.MinerHelmetItem;
 import net.zuz.cwm.items.trinkets.PocketShulker.PocketShulkerItem;
@@ -19,8 +21,9 @@ public class CWMMain implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		System.out.println("CWMMain.onInitialize");
 		var tabs = new ItemTabs();
-
+		//stuff
 		Glaive.registry(tabs.getWeapons());
 		BigAxe.registry(tabs.getWeapons());
 		BigBow.registry(tabs.getWeapons());
@@ -31,6 +34,17 @@ public class CWMMain implements ModInitializer {
 		TntFrogItem.registry(tabs.getTrinkets());
 		MagmaItem.registry(tabs.getTrinkets());
 		PocketShulkerItem.registry(tabs.getTrinkets());
-		EnderGloveItem.registry(tabs.getTrinkets());
+		GoldenBeltItem.registry(tabs.getTrinkets());
+		Materials.registry(tabs.getMaterials());
+		BookOfDefenceItem.registry(tabs.getTrinkets());
+		BigBow.predicateregisty();
+		MagmaItem.renderregistry();
+		WarriorSkullItem.renderregistry();
+		MinerHelmetItem.renderregistry();
+		TntFrogItem.renderregistry();
+		PocketShulkerItem.renderregistry();
+		ThrowingKnife.renderregistry();
+		GoldenBeltItem.renderregistry();
+		BookOfDefenceItem.renderregistry();
 	}
 }

@@ -1,5 +1,6 @@
 {
   "itemGroup.cwm.weapons": "CWM Weapons",
+  "itemGroup.cwm.materials": "CWM Materials",
   "itemGroup.cwm.trinkets": "CWM Trinkets",
   "item.cwm.wooden_big_bow": "Wooden Longbow",
   "item.cwm.stone_big_bow": "Stone Longbow",
@@ -23,5 +24,10 @@
   "item.cwm.magma": "Magma Cube On Shoulder",
   "item.cwm.miner_helmet": "Miner Helmet",
   "item.cwm.warrior_skull": "Warrior Skull",
-  "item.cwm.tnt_frog": "Tnt Frog"
+  "item.cwm.tnt_frog": "Tnt Frog",
+  "item.cwm.golden_belt": "Golden Belt",
+  "item.cwm.handle": "Handle",
+  "item.cwm.polearm_handle": "Polearm Handle",
+  "item.cwm.belt": "Belt"
+
 }
