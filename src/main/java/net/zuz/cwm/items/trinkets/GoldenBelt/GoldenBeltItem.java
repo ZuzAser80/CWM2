@@ -4,6 +4,7 @@ import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketItem;
 import dev.emi.trinkets.api.client.TrinketRenderer;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumer;
@@ -19,10 +20,15 @@ import net.minecraft.entity.mob.PiglinEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GoldenBeltItem extends TrinketItem implements TrinketRenderer {
 
@@ -32,13 +38,13 @@ public class GoldenBeltItem extends TrinketItem implements TrinketRenderer {
 
     @Override
     public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
-        if(entity.getAttacking() instanceof PiglinBruteEntity || entity.getAttacking() instanceof PiglinEntity)
+        if(entity.getAttacker() instanceof PiglinBruteEntity || entity.getAttacker() instanceof PiglinEntity)
         {
-            entity.getAttacking().endCombat();
-            double d = entity.getAttacking().getX() - entity.getX();
-            double e = entity.getAttacking().getZ() - entity.getZ();
+            entity.getAttacker().endCombat();
+            double d = entity.getAttacker().getX() - entity.getX();
+            double e = entity.getAttacker().getZ() - entity.getZ();
             double f = Math.max(d * d + e * e, 0.0001D);
-            entity.getAttacking().addVelocity(d / f, 0D, e / f);
+            entity.getAttacker().addVelocity(d / f, 0D, e / f);
         }
     }
     private static final Identifier TEXTURE = new Identifier("cwm", "textures/item/trinkets/golden_belt_model.png");
@@ -71,5 +77,11 @@ public class GoldenBeltItem extends TrinketItem implements TrinketRenderer {
     public static void renderregistry()
     {
         TrinketRendererRegistry.registerRenderer(GoldenBeltItem.item, (TrinketRenderer) GoldenBeltItem.item);
+    }
+    @Override
+    public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+        tooltip.add(new TranslatableText("item.cwm.golden_belt.tooltip").formatted(Formatting.GOLD));
+        tooltip.add(new TranslatableText("item.cwm.golden_belt.tooltip_1").formatted(Formatting.GOLD));
+
     }
 }

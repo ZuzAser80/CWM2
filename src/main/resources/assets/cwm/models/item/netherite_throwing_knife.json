@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "cwm:item/throwing_knife/netherite_throwing_knife"
+  }
+}

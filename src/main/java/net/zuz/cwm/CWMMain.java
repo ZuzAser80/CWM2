@@ -2,15 +2,19 @@ package net.zuz.cwm;
 
 import net.fabricmc.api.ModInitializer;
 import net.zuz.cwm.items.materials.Materials;
+import net.zuz.cwm.items.maul.Maul;
 import net.zuz.cwm.items.throwing_knife.ThrowingKnife;
 import net.zuz.cwm.items.big_axe.BigAxe;
 import net.zuz.cwm.items.big_bow.BigBow;
 import net.zuz.cwm.items.glaive.Glaive;
+import net.zuz.cwm.items.trinkets.Bonk.BonkItem;
+import net.zuz.cwm.items.trinkets.BookOfAttack.BookOfAttackItem;
 import net.zuz.cwm.items.trinkets.BookOfDefence.BookOfDefenceItem;
 import net.zuz.cwm.items.trinkets.GoldenBelt.GoldenBeltItem;
 import net.zuz.cwm.items.trinkets.Magma.MagmaItem;
 import net.zuz.cwm.items.trinkets.MinerHelmet.MinerHelmetItem;
 import net.zuz.cwm.items.trinkets.PocketShulker.PocketShulkerItem;
+import net.zuz.cwm.items.trinkets.RoboticClaw.RoboticClawItem;
 import net.zuz.cwm.items.trinkets.TntFrog.TntFrogItem;
 import net.zuz.cwm.items.trinkets.WarriorSkull.WarriorSkullItem;
 import org.apache.logging.log4j.LogManager;
@@ -46,5 +50,12 @@ public class CWMMain implements ModInitializer {
 		ThrowingKnife.renderregistry();
 		GoldenBeltItem.renderregistry();
 		BookOfDefenceItem.renderregistry();
+		BookOfAttackItem.registry(tabs.getTrinkets());
+		BookOfAttackItem.renderregistry();
+		RoboticClawItem.registry(tabs.getTrinkets());
+		RoboticClawItem.renderregistry();
+		Maul.registry(tabs.getWeapons());
+		BonkItem.registry(tabs.getTrinkets());
+		BonkItem.renderregistry();
 	}
 }

@@ -6,6 +6,7 @@ import dev.emi.trinkets.api.client.TrinketRenderer;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -18,11 +19,16 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.zuz.cwm.items.trinkets.WarriorSkull.WarriorSkullItem;
+
+import java.util.List;
 
 public class MagmaItem extends TrinketItem implements TrinketRenderer {
 
@@ -34,10 +40,7 @@ public class MagmaItem extends TrinketItem implements TrinketRenderer {
     @Override
     public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
         World world = entity.world;
-        if(entity.getAttacking() != null)
-        {
-            entity.getAttacking().setOnFireFor(6);
-        }
+        entity.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE,400,0, true, false));
         if(entity.getAttacker() != null)
         {
             double d = entity.getAttacker().getX() - entity.getX();
@@ -76,5 +79,11 @@ public class MagmaItem extends TrinketItem implements TrinketRenderer {
     public static void renderregistry()
     {
         TrinketRendererRegistry.registerRenderer(MagmaItem.item, (TrinketRenderer) MagmaItem.item);
+    }
+    @Override
+    public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+        tooltip.add(new TranslatableText("item.cwm.magma.tooltip").formatted(Formatting.YELLOW));
+        tooltip.add(new TranslatableText("item.cwm.magma.tooltip_1").formatted(Formatting.YELLOW));
+
     }
 }

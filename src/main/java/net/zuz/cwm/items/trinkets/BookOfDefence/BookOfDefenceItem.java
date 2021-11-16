@@ -5,6 +5,7 @@ import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketItem;
 import dev.emi.trinkets.api.client.TrinketRenderer;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumer;
@@ -20,11 +21,16 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.math.Vec3f;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.World;
 
+import java.util.List;
 import java.util.UUID;
 
 public class BookOfDefenceItem extends TrinketItem implements TrinketRenderer {
@@ -40,6 +46,7 @@ public class BookOfDefenceItem extends TrinketItem implements TrinketRenderer {
         modifiers.put(EntityAttributes.GENERIC_ARMOR, new EntityAttributeModifier(uuid, "bookofdefenceboost", 4, EntityAttributeModifier.Operation.ADDITION));
         modifiers.put(EntityAttributes.GENERIC_ARMOR_TOUGHNESS, new EntityAttributeModifier(uuid, "bookofdefenceboost", 4, EntityAttributeModifier.Operation.ADDITION));
         modifiers.put(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, new EntityAttributeModifier(uuid, "bookofdefenceboost", 0.4, EntityAttributeModifier.Operation.ADDITION));
+        modifiers.put(EntityAttributes.GENERIC_MAX_HEALTH, new EntityAttributeModifier(uuid, "bookofdefenceboost", 8, EntityAttributeModifier.Operation.ADDITION));
         return modifiers;
     }
     @Override
@@ -70,5 +77,10 @@ public class BookOfDefenceItem extends TrinketItem implements TrinketRenderer {
     public static void renderregistry()
     {
         TrinketRendererRegistry.registerRenderer(BookOfDefenceItem.item, (TrinketRenderer) BookOfDefenceItem.item);
+    }
+    @Override
+    public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+        tooltip.add(new TranslatableText("item.cwm.book_of_defence.tooltip").formatted(Formatting.DARK_BLUE));
+        tooltip.add(new TranslatableText("item.cwm.book_of_defence.tooltip_1").formatted(Formatting.DARK_BLUE));
     }
 }

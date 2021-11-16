@@ -4,15 +4,17 @@
     "layer0": "cwm:item/glaive/diamond_glaive"
   },
   "display": {
-    "thirdperson_righthand": {
-      "rotation": [ -80, 260, -40 ],
-      "translation": [ -1, 6.5, 2.5 ],
-      "scale": [ 1.5, 1.5, 1.5]
-    },
-    "thirdperson_lefthand": {
-      "rotation": [ -80, -280, 40 ],
-      "translation": [ -1, 6.5, 2.5 ],
-      "scale": [ 1.5, 1.5, 1.5 ]
+    "display": {
+      "thirdperson_righthand": {
+        "rotation": [ -90, 180, -45 ],
+        "translation": [ -1, -2, 2.5 ],
+        "scale": [ 2, 2, 2 ]
+      },
+      "thirdperson_lefthand": {
+        "rotation": [ -90, -180, 45 ],
+        "translation": [ -1, -2, 2.5 ],
+        "scale": [ 2, 2, 2 ]
+      }
     }
   }
 }
