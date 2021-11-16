@@ -24,13 +24,12 @@ public class BonkC2SPacket {
     public static final Identifier ID = new Identifier("cwm", "bonk_keybind");
     public static TrinketItem Bonk = BonkItem.item;
     public static KeyBinding drinkBonk;
-    public static final int cooldown = 400;
 
 
     public static void onPacket(MinecraftServer server, ServerPlayerEntity player, ServerPlayNetworkHandler handler, PacketByteBuf buffer, PacketSender sender) {
         server.execute(() -> {
             if (TrinketsApi.getTrinketComponent(player).get().isEquipped(Bonk) && !player.getItemCooldownManager().isCoolingDown(Bonk)) {
-                player.getItemCooldownManager().set(Bonk, cooldown);
+                player.getItemCooldownManager().set(Bonk, 400);
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 180, 9, true, false));
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 180, 9, true, false));
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 180, 9, true, false));
@@ -51,7 +50,7 @@ public class BonkC2SPacket {
         ));
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (drinkBonk.wasPressed()) {
-                if (TrinketsApi.getTrinketComponent(client.player).get().isEquipped(BonkItem.item)) {
+                if (TrinketsApi.getTrinketComponent(client.player).get().isEquipped(Bonk)) {
                     client.getNetworkHandler().sendPacket(BonkC2SPacket.create());
                 }
             }
