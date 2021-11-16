@@ -1,6 +1,6 @@
 package net.zuz.cwm.items.trinkets.PocketShulker;
 
-public class PocketShulkerOpenC2SPacket {
+public class PocketShulkerC2SPacket {
     //public static final Identifier ID = new Identifier("cwm", "shulk_open");
     //    public static TrinketItem Bonk = BonkItem.item;
     //    public static KeyBinding drinkBonk;

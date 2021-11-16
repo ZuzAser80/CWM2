@@ -71,7 +71,7 @@ public class BonkItem extends TrinketItem implements TrinketRenderer {
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         tooltip.add(new TranslatableText("Press " + I18n.translate(KeyBindingHelper.getBoundKeyOf(BonkC2SPacket.drinkBonk).getLocalizedText().getString()) + " to drink your bonk can").formatted(Formatting.GOLD));
-        tooltip.add(new TranslatableText("Cooldown is " + BonkC2SPacket.cooldown / 20 + " seconds").formatted(Formatting.GOLD));
+        tooltip.add(new TranslatableText("Cooldown is " + 400 / 20 + " seconds").formatted(Formatting.GOLD));
 
     }
 }
