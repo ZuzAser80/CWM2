@@ -5,11 +5,13 @@ import dev.emi.trinkets.api.TrinketItem;
 import dev.emi.trinkets.api.client.TrinketRenderer;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.client.render.entity.model.EntityModel;
+import net.minecraft.client.render.entity.model.PlayerEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -59,14 +61,15 @@ public class PocketShulkerItem extends TrinketItem implements TrinketRenderer {
 
     private static final Identifier TEXTURE = new Identifier("cwm", "textures/item/trinkets/shulk_model.png");
     private BipedEntityModel<LivingEntity> model;
-    private static PocketShulkerItem item;
+    public static PocketShulkerItem item;
     @Override
     public void render(ItemStack stack, SlotReference slotReference, EntityModel<? extends LivingEntity> contextModel, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, LivingEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
         BipedEntityModel<LivingEntity> model = this.getModel();
         model.setAngles(entity, limbAngle, limbDistance, animationProgress, animationProgress, headPitch);
+        TrinketRenderer.translateToChest(matrices, (PlayerEntityModel<AbstractClientPlayerEntity>) contextModel, (AbstractClientPlayerEntity) entity);
         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(-30));
         matrices.scale(0.25F, 0.25F, 0.25F);
-        matrices.translate(0.75F, 2.5, -0.75F);
+        matrices.translate(0.65F, 0.95F, -0.3F);
         TrinketRenderer.followBodyRotations(entity, model);
         VertexConsumer vertexConsumer = vertexConsumers.getBuffer(model.getLayer(TEXTURE));
         model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1);

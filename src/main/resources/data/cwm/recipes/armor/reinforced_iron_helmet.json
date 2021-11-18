@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DDD",
+    "D D",
+    "   "
+  ],
+  "key": {
+    "D": {
+      "item": "cwm:reinforced_iron_ingot"
+    }
+  },
+  "result": {
+    "item": "cwm:reinforced_iron_helmet"
+  }
+}

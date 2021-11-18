@@ -13,6 +13,6 @@ public class Materials {
     public static void registry(ItemGroup group) {
         Registry.register(Registry.ITEM, createId("polearm_handle"), new Item(new Item.Settings().group(group)));
         Registry.register(Registry.ITEM, createId("handle"), new Item(new Item.Settings().group(group)));
-        Registry.register(Registry.ITEM, createId("belt"), new Item(new Item.Settings().group(group)));
+        Registry.register(Registry.ITEM, createId("belt"), new Item(new Item.Settings().group(group).maxCount(1)));
     }
 }

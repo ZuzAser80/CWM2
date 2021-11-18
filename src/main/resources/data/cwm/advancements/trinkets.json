@@ -5,11 +5,11 @@
       "item": "cwm:miner_helmet"
     },
     "title": {
-      "translate": "Let the exploration begin!"
+      "translate": "advancement.cwm.trinkets.title"
     },
     "frame": "goal",
     "description": {
-      "translate": "Acquire any artifact"
+      "translate": "advancement.cwm.trinkets.disc"
     }
   },
   "criteria": {

@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values":
+  [
+    "cwm:netherite_glaive",
+    "cwm:diamond_glaive",
+    "cwm:golden_glaive",
+    "cwm:golden_glaive",
+    "cwm:iron_glaive",
+    "cwm:stone_glaive",
+    "cwm:wooden_glaive"
+  ]
+}

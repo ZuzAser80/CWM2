@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  X",
+    " # ",
+    "   "
+  ],
+  "key": {
+    "#": {
+      "item": "cwm:handle"
+    },
+    "X": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "cwm:diamond_throwing_knife"
+  }
+}

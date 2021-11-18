@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:adventure/root",
+  "display": {
+    "icon": {
+      "item": "cwm:reinforced_iron_ingot"
+    },
+    "title": {
+      "translate": "advancement.cwm.golden_hardware.title"
+    },
+    "frame": "task",
+    "description": {
+      "translate": "advancement.cwm.golden_hardware.desc"
+    }
+  },
+  "criteria": {
+    "find_artifact": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items":[
+              "cwm:reinforced_iron_ingot"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

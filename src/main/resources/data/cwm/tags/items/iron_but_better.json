@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values":
+  [
+    "cwm:reinforced_iron_helmet",
+    "cwm:reinforced_iron_chestplate",
+    "cwm:reinforced_iron_leggings",
+    "cwm:reinforced_iron_boots"
+  ]
+}

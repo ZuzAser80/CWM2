@@ -33,6 +33,7 @@ public class BonkC2SPacket {
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 180, 9, true, false));
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 180, 9, true, false));
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 180, 9, true, false));
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 180, 9, true, false));
                 System.out.println("U are drunk now!");
             } else {
                 System.out.println("bloody hasting scouts");

@@ -4,17 +4,15 @@
     "layer0": "cwm:item/glaive/iron_glaive"
   },
   "display": {
-    "display": {
-      "thirdperson_righthand": {
-        "rotation": [45, 0, 0],
-        "scale": [ 2, 2, 2],
-        "translation": [0, 3, 0]
-      },
-      "thirdperson_lefthand": {
-        "rotation": [45, 0, 0],
-        "scale": [ 2, 2, 2],
-        "translation": [0, 3, 0]
-      }
+    "thirdperson_righthand": {
+      "rotation": [ -90, 270, -40 ],
+      "translation": [ 0, 5.5, 1 ],
+      "scale": [1.5, 1.5, 1.5]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ -90, -270, 40 ],
+      "translation": [ 0, 5.5, 1 ],
+      "scale": [ 1.5, 1.5, 1.5 ]
     }
   }
 }

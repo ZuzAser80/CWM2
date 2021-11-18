@@ -6,6 +6,9 @@
     },
     {
       "item": "minecraft:shulker_box"
+    },
+    {
+      "item": "minecraft:diamond_block"
     }
   ],
   "result": {

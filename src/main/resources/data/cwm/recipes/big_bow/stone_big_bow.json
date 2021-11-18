@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X#X",
+    "#BS",
+    "XSS"
+  ],
+  "key": {
+    "#": {
+      "item": "cwm:polearm_handle"
+    },
+    "X": {
+      "tag": "minecraft:stone_tool_materials"
+    },
+    "B": {
+      "item": "minecraft:bow"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "item": "cwm:stone_big_bow"
+  }
+}

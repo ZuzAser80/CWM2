@@ -11,6 +11,5 @@ public class CWMClient implements ClientModInitializer {
         System.out.println("CWMClient.onInitializeClient");
         ServerPlayNetworking.registerGlobalReceiver(BonkC2SPacket.ID, BonkC2SPacket::onPacket);
         BonkC2SPacket.Keybind();
-
     }
 }

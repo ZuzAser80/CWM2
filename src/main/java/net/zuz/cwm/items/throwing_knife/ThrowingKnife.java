@@ -2,6 +2,8 @@ package net.zuz.cwm.items.throwing_knife;
 
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
+import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
@@ -11,8 +13,11 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ToolMaterials;
+import net.minecraft.loot.LootTables;
+import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.zuz.cwm.items.big_axe.BigAxeItem;
 import net.zuz.cwm.util.EntitySpawnPacket;
 
 import java.util.LinkedHashMap;
@@ -50,6 +55,24 @@ public class ThrowingKnife {
         GOLDEN_ANCHOR_ITEM = Registry.register(Registry.ITEM, createId("golden_throwing_knife"), new ThrowingKnifeItem(ToolMaterials.GOLD, 2, -3f, () -> GOLDEN_ANCHOR, new Item.Settings().group(group).maxCount(1).maxDamage(500)));
         DIAMOND_ANCHOR_ITEM = Registry.register(Registry.ITEM, createId("diamond_throwing_knife"), new ThrowingKnifeItem(ToolMaterials.DIAMOND, 2, -3f, () -> DIAMOND_ANCHOR, new Item.Settings().group(group).maxCount(1).maxDamage(1500)));
         NETHERITE_ANCHOR_ITEM = Registry.register(Registry.ITEM, createId("netherite_throwing_knife"), new ThrowingKnifeItem(ToolMaterials.NETHERITE, 2, -3f, () -> NETHERITE_ANCHOR, new Item.Settings().group(group).maxCount(1).maxDamage(2500).fireproof()));
+        loottables(LootTables.RUINED_PORTAL_CHEST, GOLDEN_ANCHOR_ITEM, IRON_ANCHOR_ITEM, 5, 50);
+        loottables(LootTables.VILLAGE_WEAPONSMITH_CHEST, DIAMOND_ANCHOR_ITEM, IRON_ANCHOR_ITEM, 5, 2);
+        loottables(LootTables.BASTION_BRIDGE_CHEST, GOLDEN_ANCHOR_ITEM, IRON_ANCHOR_ITEM, 5, 4);
+        loottables(LootTables.BASTION_TREASURE_CHEST, DIAMOND_ANCHOR_ITEM, IRON_ANCHOR_ITEM, 5, 2);
+        loottables(LootTables.VILLAGE_ARMORER_CHEST, DIAMOND_ANCHOR_ITEM, IRON_ANCHOR_ITEM, 10, 5);
+        loottables(LootTables.SPAWN_BONUS_CHEST, WOODEN_ANCHOR_ITEM, STONE_ANCHOR_ITEM, 2, 6);
+    }
+    private static void loottables(Identifier CHEST, ThrowingKnifeItem big_axe_1, ThrowingKnifeItem big_axe_2, int weight_1, int weight_2)
+    {
+        LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, table, setter) -> {
+            if (CHEST.equals(id)) {
+                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+                        .with(ItemEntry.builder(big_axe_1).weight(weight_1))
+                        .with(ItemEntry.builder(big_axe_2).weight(weight_2));
+
+                table.pool(poolBuilder);
+            }
+        });
     }
     public static final Map<Identifier, EntityType<?>> ENTITY_TYPES = new LinkedHashMap<>();
     public static EntityType<ThrowingKnifeEntity> createAnchor(ThrowingKnifeItem item) {

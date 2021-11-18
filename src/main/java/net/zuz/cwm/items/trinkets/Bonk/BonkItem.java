@@ -45,8 +45,8 @@ public class BonkItem extends TrinketItem implements TrinketRenderer {
         model.setAngles(entity, limbAngle, limbDistance, animationProgress, animationProgress, headPitch);
         TrinketRenderer.translateToChest(matrices, (PlayerEntityModel<AbstractClientPlayerEntity>) contextModel, (AbstractClientPlayerEntity) entity);
         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(-30));
-        matrices.scale(0.5F, 0.5F, 0.5F);
-        matrices.translate(0.5F, 0.75F, -0.2F);
+        matrices.scale(0.25F, 0.25F, 0.25F);
+        matrices.translate(0.65F, 0.95F, -0.3F);
         TrinketRenderer.followBodyRotations(entity, model);
         VertexConsumer vertexConsumer = vertexConsumers.getBuffer(model.getLayer(TEXTURE));
         model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1);

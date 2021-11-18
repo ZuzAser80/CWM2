@@ -1,8 +1,15 @@
 package net.zuz.cwm;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
+import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
+import net.minecraft.block.Blocks;
+import net.minecraft.item.Items;
+import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.provider.number.LootNumberProvider;
+import net.minecraft.util.Identifier;
+import net.zuz.cwm.items.ReinforcedIron.ReinforcedIronArmorMaterial;
 import net.zuz.cwm.items.materials.Materials;
-import net.zuz.cwm.items.maul.Maul;
 import net.zuz.cwm.items.throwing_knife.ThrowingKnife;
 import net.zuz.cwm.items.big_axe.BigAxe;
 import net.zuz.cwm.items.big_bow.BigBow;
@@ -54,8 +61,10 @@ public class CWMMain implements ModInitializer {
 		BookOfAttackItem.renderregistry();
 		RoboticClawItem.registry(tabs.getTrinkets());
 		RoboticClawItem.renderregistry();
-		Maul.registry(tabs.getWeapons());
 		BonkItem.registry(tabs.getTrinkets());
 		BonkItem.renderregistry();
+		ItemTabs.logo();
+		ReinforcedIronArmorMaterial.registry(tabs.getMaterials(), tabs.getArmor());
+
 	}
 }

@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:adventure/root",
+  "display": {
+    "icon": {
+      "item": "cwm:iron_glaive"
+    },
+    "title": {
+      "translate": "advancement.cwm.glaiveup.title"
+    },
+    "frame": "task",
+    "description": {
+      "translate": "advancement.cwm.glaiveup.disc"
+    }
+  },
+  "criteria": {
+    "find_artifact": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "cwm:glaives"
+          }
+        ]
+      }
+    }
+  }
+}

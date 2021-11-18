@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  X",
+    " # ",
+    "   "
+  ],
+  "key": {
+    "#": {
+      "item": "cwm:handle"
+    },
+    "X": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "cwm:golden_throwing_knife"
+  }
+}

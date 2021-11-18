@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "D D",
+    "DDD",
+    "DDD"
+  ],
+  "key": {
+    "D": {
+      "item": "cwm:reinforced_iron_ingot"
+    }
+  },
+  "result": {
+    "item": "cwm:reinforced_iron_chestplate"
+  }
+}

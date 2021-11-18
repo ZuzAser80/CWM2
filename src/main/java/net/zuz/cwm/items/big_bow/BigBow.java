@@ -1,12 +1,14 @@
 package net.zuz.cwm.items.big_bow;
 
+import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
+import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.loot.LootTables;
+import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-
-import java.util.HashMap;
 
 
 public class BigBow {
@@ -29,7 +31,24 @@ public class BigBow {
         GOLDEN_BOW_ITEM = Registry.register(Registry.ITEM, createId("golden_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(500)));
         DIAMOND_BOW_ITEM = Registry.register(Registry.ITEM, createId("diamond_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(100)));
         NETHERITE_BOW_ITEM = Registry.register(Registry.ITEM, createId("netherite_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(1500).fireproof()));
-        
+        loottables(LootTables.RUINED_PORTAL_CHEST, GOLDEN_BOW_ITEM, IRON_BOW_ITEM, 5*2, 50*2);
+        loottables(LootTables.VILLAGE_WEAPONSMITH_CHEST, DIAMOND_BOW_ITEM, IRON_BOW_ITEM, 5*2, 2*2);
+        loottables(LootTables.BASTION_BRIDGE_CHEST, GOLDEN_BOW_ITEM, IRON_BOW_ITEM, 5*2, 4*2);
+        loottables(LootTables.BASTION_TREASURE_CHEST, DIAMOND_BOW_ITEM, IRON_BOW_ITEM, 5*2, 2*2);
+        loottables(LootTables.VILLAGE_ARMORER_CHEST, DIAMOND_BOW_ITEM, IRON_BOW_ITEM, 10*2, 5*2);
+
+    }
+    private static void loottables(Identifier CHEST, BigBowItem glaive_1, BigBowItem glaive_2, int weight_1, int weight_2)
+    {
+        LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, table, setter) -> {
+            if (CHEST.equals(id)) {
+                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+                        .with(ItemEntry.builder(glaive_1).weight(weight_1))
+                        .with(ItemEntry.builder(glaive_2).weight(weight_2));
+
+                table.pool(poolBuilder);
+            }
+        });
     }
     public static void predicateregisty()
     {

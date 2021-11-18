@@ -3,18 +3,14 @@
   "id": "cwm",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Cold Weapons Mod",
+  "description": "This mod adds some new weapons to Minecraft, inspired by Draylar1 and GloboxZ",
   "authors": [
-    "Me!"
+    "ZuzAser80"
   ],
-  "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
-  },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "MIT",
+  "icon": "assets/cwm/icon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -30,6 +26,7 @@
   ],
 
   "depends": {
+
     "fabricloader": ">=0.11.3",
     "fabric": "*",
     "minecraft": "1.17.x",

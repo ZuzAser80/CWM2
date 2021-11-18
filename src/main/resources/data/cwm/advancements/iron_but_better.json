@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:adventure/root",
+  "display": {
+    "icon": {
+      "item": "cwm:reinforced_iron_chestplate"
+    },
+    "title": {
+      "translate": "advancement.cwm.iron_but_better.title"
+    },
+    "frame": "task",
+    "description": {
+      "translate": "advancement.cwm.iron_but_better.desc"
+    }
+  },
+  "criteria": {
+    "find_artifact": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "cwm:iron_but_better"
+          }
+        ]
+      }
+    }
+  }
+}

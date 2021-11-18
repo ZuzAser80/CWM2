@@ -7,6 +7,10 @@
     "cwm:tnt_frog",
     "cwm:shulk",
     "cwm:magma",
-    "cwm:golden_belt"
+    "cwm:golden_belt",
+    "cwm:bonk_item",
+    "cwm:robotic_claw",
+    "cwm:book_of_attack",
+    "cwm:book_of_defence"
   ]
 }

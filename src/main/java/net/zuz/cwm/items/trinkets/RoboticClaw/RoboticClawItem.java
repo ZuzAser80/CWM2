@@ -45,13 +45,14 @@ public class RoboticClawItem extends TrinketItem implements TrinketRenderer {
     public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
         entity.addStatusEffect(new StatusEffectInstance(StatusEffects.SATURATION,400,0, true, false));
     }
-    //TODO: custom keybind + laser?
+    //TODO: custom keybind + laser? Keybind = not impossible. Laser?
     public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack, SlotReference slot, LivingEntity entity, UUID uuid) {
         var modifiers = super.getModifiers(stack, slot, entity, uuid);
         modifiers.put(ReachEntityAttributes.REACH, new EntityAttributeModifier(uuid, "bookofdefenceboost", 4, EntityAttributeModifier.Operation.ADDITION));
         modifiers.put(EntityAttributes.GENERIC_ARMOR, new EntityAttributeModifier(uuid, "bookofdefenceboost", 4, EntityAttributeModifier.Operation.ADDITION));
         return modifiers;
     }
+
     private static final Identifier TEXTURE = new Identifier("cwm", "textures/item/trinkets/robotic_claw_model.png");
     private BipedEntityModel<LivingEntity> model;
     private static RoboticClawItem item;
@@ -61,8 +62,8 @@ public class RoboticClawItem extends TrinketItem implements TrinketRenderer {
         model.setAngles(entity, limbAngle, limbDistance, animationProgress, animationProgress, headPitch);
         TrinketRenderer.translateToRightArm(matrices, (PlayerEntityModel<AbstractClientPlayerEntity>) contextModel, (AbstractClientPlayerEntity) entity);
         TrinketRenderer.followBodyRotations(entity, model);
-        matrices.scale(0.5F, 0.5F, 0.5F);
-        matrices.translate(0F, 0.25F, 0.2F);
+        matrices.translate(0, 0, 0.12);
+        matrices.scale(0.75F, 0.75F, 0.75F);
         matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion(90));
         VertexConsumer vertexConsumer = vertexConsumers.getBuffer(model.getLayer(TEXTURE));
         model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1);
@@ -86,6 +87,6 @@ public class RoboticClawItem extends TrinketItem implements TrinketRenderer {
     }
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add(new TranslatableText("item.cwm.robotic_claw.tooltip").formatted(Formatting.GRAY));
+        tooltip.add(new TranslatableText("item.cwm.robotic_claw.tooltip").formatted(Formatting.DARK_PURPLE));
     }
 }
