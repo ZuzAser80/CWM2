@@ -33,12 +33,14 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.UUID;
 
+import static net.zuz.cwm.util.Helper.id;
+
 public class BookOfDefenceItem extends TrinketItem implements TrinketRenderer {
 
     public BookOfDefenceItem(Settings settings) {
         super(settings);
     }
-    private static final Identifier TEXTURE = new Identifier("cwm", "textures/item/trinkets/book_of_defence_model.png");
+    private static final Identifier TEXTURE = id("textures/item/trinkets/book_of_defence_model.png");
     private BipedEntityModel<LivingEntity> model;
     private static BookOfDefenceItem item;
     public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack, SlotReference slot, LivingEntity entity, UUID uuid) {
@@ -72,7 +74,7 @@ public class BookOfDefenceItem extends TrinketItem implements TrinketRenderer {
     }
     public static void registry(ItemGroup group)
     {
-        item = Registry.register(Registry.ITEM, new Identifier("cwm", "book_of_defence"), new BookOfDefenceItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
+        item = Registry.register(Registry.ITEM, id("book_of_defence"), new BookOfDefenceItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
     }
     public static void renderregistry()
     {

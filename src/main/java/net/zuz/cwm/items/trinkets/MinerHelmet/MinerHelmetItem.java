@@ -29,6 +29,8 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
+import static net.zuz.cwm.util.Helper.id;
+
 public class MinerHelmetItem extends TrinketItem implements TrinketRenderer {
 
     public MinerHelmetItem(Item.Settings settings) {
@@ -39,7 +41,7 @@ public class MinerHelmetItem extends TrinketItem implements TrinketRenderer {
         entity.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION,400,0, true, false));
         entity.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE,400,0, true, false));
     }
-    private static final Identifier TEXTURE = new Identifier("cwm", "textures/item/trinkets/miner_helmet_model.png");
+    private static final Identifier TEXTURE = id("textures/item/trinkets/miner_helmet_model.png");
     private BipedEntityModel<LivingEntity> model;
     private static MinerHelmetItem item;
 
@@ -65,7 +67,7 @@ public class MinerHelmetItem extends TrinketItem implements TrinketRenderer {
     }
     public static void registry(ItemGroup group)
     {
-        item = Registry.register(Registry.ITEM, new Identifier("cwm", "miner_helmet"), new MinerHelmetItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
+        item = Registry.register(Registry.ITEM, id("miner_helmet"), new MinerHelmetItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
     }
     public static void renderregistry()
     {

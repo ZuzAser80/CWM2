@@ -19,9 +19,11 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 
+import static net.zuz.cwm.util.Helper.id;
+
 
 public class BonkC2SPacket {
-    public static final Identifier ID = new Identifier("cwm", "bonk_keybind");
+    public static final Identifier ID = id("bonk_keybind");
     public static TrinketItem Bonk = BonkItem.item;
     public static KeyBinding drinkBonk;
 

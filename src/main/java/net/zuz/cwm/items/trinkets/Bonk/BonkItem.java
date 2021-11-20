@@ -30,12 +30,14 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
+import static net.zuz.cwm.util.Helper.id;
+
 public class BonkItem extends TrinketItem implements TrinketRenderer {
 
     public BonkItem(Settings settings) {
         super(settings);
     }
-    private static final Identifier TEXTURE = new Identifier("cwm", "textures/item/trinkets/bonk_model.png");
+    private static final Identifier TEXTURE = id("textures/item/trinkets/bonk_model.png");
     private BipedEntityModel<LivingEntity> model;
     public static BonkItem item;
 
@@ -62,7 +64,7 @@ public class BonkItem extends TrinketItem implements TrinketRenderer {
     }
     public static void registry(ItemGroup group)
     {
-        item = Registry.register(Registry.ITEM, new Identifier("cwm", "bonk_item"), new BonkItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
+        item = Registry.register(Registry.ITEM, id("bonk_item"), new BonkItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
     }
     public static void renderregistry()
     {

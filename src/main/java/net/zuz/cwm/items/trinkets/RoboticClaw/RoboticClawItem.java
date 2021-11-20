@@ -36,6 +36,8 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.UUID;
 
+import static net.zuz.cwm.util.Helper.id;
+
 public class RoboticClawItem extends TrinketItem implements TrinketRenderer {
 
     public RoboticClawItem(Settings settings) {
@@ -53,7 +55,7 @@ public class RoboticClawItem extends TrinketItem implements TrinketRenderer {
         return modifiers;
     }
 
-    private static final Identifier TEXTURE = new Identifier("cwm", "textures/item/trinkets/robotic_claw_model.png");
+    private static final Identifier TEXTURE = id("textures/item/trinkets/robotic_claw_model.png");
     private BipedEntityModel<LivingEntity> model;
     private static RoboticClawItem item;
     @Override
@@ -79,7 +81,7 @@ public class RoboticClawItem extends TrinketItem implements TrinketRenderer {
     }
     public static void registry(ItemGroup group)
     {
-        item = Registry.register(Registry.ITEM, new Identifier("cwm", "robotic_claw"), new RoboticClawItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
+        item = Registry.register(Registry.ITEM, id("robotic_claw"), new RoboticClawItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
     }
     public static void renderregistry()
     {

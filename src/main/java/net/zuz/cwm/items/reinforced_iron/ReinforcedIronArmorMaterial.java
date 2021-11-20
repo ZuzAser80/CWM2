@@ -8,6 +8,8 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+import static net.zuz.cwm.util.Helper.id;
+
 public class ReinforcedIronArmorMaterial implements ArmorMaterial {
     private static final int[] BASE_DURABILITY = new int[] {13, 15, 16, 11};
     private static final int[] PROTECTION_VALUES = new int[] {4, 6, 7, 3};
@@ -55,10 +57,10 @@ public class ReinforcedIronArmorMaterial implements ArmorMaterial {
     public static void registry(ItemGroup materials, ItemGroup armor)
     {
         ArmorMaterial REINFORCED_IRON = new ReinforcedIronArmorMaterial();
-        REINFORCED_IRON_INGOT = Registry.register(Registry.ITEM, new Identifier("cwm", "reinforced_iron_ingot"), new Item(new Item.Settings().group(materials)));
-        ArmorItem REINFORCED_IRON_HELMET = Registry.register(Registry.ITEM, new Identifier("cwm", "reinforced_iron_helmet"), new ArmorItem(REINFORCED_IRON, EquipmentSlot.HEAD, (new Item.Settings()).group(armor)));
-        ArmorItem REINFORCED_IRON_CHESTPLATE = Registry.register(Registry.ITEM, new Identifier("cwm", "reinforced_iron_chestplate"), new ArmorItem(REINFORCED_IRON, EquipmentSlot.CHEST, (new Item.Settings()).group(armor)));
-        ArmorItem REINFORCED_IRON_LEGGINGS = Registry.register(Registry.ITEM, new Identifier("cwm", "reinforced_iron_leggings"), new ArmorItem(REINFORCED_IRON, EquipmentSlot.LEGS, (new Item.Settings()).group(armor)));
-        ArmorItem REINFORCED_IRON_BOOTS = Registry.register(Registry.ITEM, new Identifier("cwm", "reinforced_iron_boots"), new ArmorItem(REINFORCED_IRON, EquipmentSlot.FEET, (new Item.Settings()).group(armor)));
+        REINFORCED_IRON_INGOT = Registry.register(Registry.ITEM, id("reinforced_iron_ingot"), new Item(new Item.Settings().group(materials)));
+        ArmorItem REINFORCED_IRON_HELMET = Registry.register(Registry.ITEM, id("reinforced_iron_helmet"), new ArmorItem(REINFORCED_IRON, EquipmentSlot.HEAD, (new Item.Settings()).group(armor)));
+        ArmorItem REINFORCED_IRON_CHESTPLATE = Registry.register(Registry.ITEM, id("reinforced_iron_chestplate"), new ArmorItem(REINFORCED_IRON, EquipmentSlot.CHEST, (new Item.Settings()).group(armor)));
+        ArmorItem REINFORCED_IRON_LEGGINGS = Registry.register(Registry.ITEM, id("reinforced_iron_leggings"), new ArmorItem(REINFORCED_IRON, EquipmentSlot.LEGS, (new Item.Settings()).group(armor)));
+        ArmorItem REINFORCED_IRON_BOOTS = Registry.register(Registry.ITEM, id("reinforced_iron_boots"), new ArmorItem(REINFORCED_IRON, EquipmentSlot.FEET, (new Item.Settings()).group(armor)));
     }
 }

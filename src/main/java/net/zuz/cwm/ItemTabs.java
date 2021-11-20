@@ -1,30 +1,20 @@
 package net.zuz.cwm;
 
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.minecraft.item.*;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.Rarity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
-import net.zuz.cwm.items.materials.Materials;
-import net.zuz.cwm.items.trinkets.WarriorSkull.WarriorSkullItem;
+
+import static net.zuz.cwm.util.Helper.id;
 
 public class ItemTabs {
 
-    private Identifier id(String name) {
-        return new Identifier("cwm", name);
-    }
     public static Item logo1;
     public static Item logo2;
     public static Item logo3;
     public static Item logo4;
 
-    public static void logo()
-    {
-        logo1 = Registry.register(Registry.ITEM, new Identifier("cwm", "logo_1"), new Item(new Item.Settings()));
-        logo2 = Registry.register(Registry.ITEM, new Identifier("cwm", "logo_2"), new Item(new Item.Settings()));
-        logo3 = Registry.register(Registry.ITEM, new Identifier("cwm", "logo_3"), new Item(new Item.Settings()));
-        logo4 = Registry.register(Registry.ITEM, new Identifier("cwm", "logo_4"), new Item(new Item.Settings()));
-    }
     final ItemGroup weapons = FabricItemGroupBuilder.build(
             id("weapons"),
             () -> new ItemStack(logo1)
@@ -41,15 +31,26 @@ public class ItemTabs {
             id("armor"),
             () -> new ItemStack(logo4)
     );
+
+    public static void logo() {
+        logo1 = Registry.register(Registry.ITEM, id("logo_1"), new Item(new Item.Settings()));
+        logo2 = Registry.register(Registry.ITEM, id("logo_2"), new Item(new Item.Settings()));
+        logo3 = Registry.register(Registry.ITEM, id("logo_3"), new Item(new Item.Settings()));
+        logo4 = Registry.register(Registry.ITEM, id("logo_4"), new Item(new Item.Settings()));
+    }
+
     public ItemGroup getWeapons() {
         return weapons;
     }
+
     public ItemGroup getTrinkets() {
         return trinkets;
     }
+
     public ItemGroup getMaterials() {
         return materials;
     }
+
     public ItemGroup getArmor() {
         return armor;
     }

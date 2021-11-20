@@ -30,6 +30,8 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
+import static net.zuz.cwm.util.Helper.id;
+
 public class GoldenBeltItem extends TrinketItem implements TrinketRenderer {
 
     public GoldenBeltItem(Settings settings) {
@@ -47,7 +49,7 @@ public class GoldenBeltItem extends TrinketItem implements TrinketRenderer {
             entity.getAttacker().addVelocity(d / f, 0D, e / f);
         }
     }
-    private static final Identifier TEXTURE = new Identifier("cwm", "textures/item/trinkets/golden_belt_model.png");
+    private static final Identifier TEXTURE = id("textures/item/trinkets/golden_belt_model.png");
     private BipedEntityModel<LivingEntity> model;
     private static GoldenBeltItem item;
 
@@ -72,7 +74,7 @@ public class GoldenBeltItem extends TrinketItem implements TrinketRenderer {
     }
     public static void registry(ItemGroup group)
     {
-        item = Registry.register(Registry.ITEM, new Identifier("cwm", "golden_belt"), new GoldenBeltItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
+        item = Registry.register(Registry.ITEM, id("golden_belt"), new GoldenBeltItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
     }
     public static void renderregistry()
     {

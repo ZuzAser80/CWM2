@@ -10,6 +10,8 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+import static net.zuz.cwm.util.Helper.id;
+
 
 public class BigBow {
 
@@ -20,17 +22,14 @@ public class BigBow {
     private static BigBowItem DIAMOND_BOW_ITEM;
     private static BigBowItem NETHERITE_BOW_ITEM;
 
-    private static Identifier createId(String name) {
-        return new Identifier("cwm", name);
-    }
 
     public static void registry(ItemGroup group) {
-        WOODEN_BOW_ITEM = Registry.register(Registry.ITEM, createId("wooden_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(250)));
-        STONE_BOW_ITEM = Registry.register(Registry.ITEM, createId("stone_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(500)));
-        IRON_BOW_ITEM = Registry.register(Registry.ITEM, createId("iron_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(750)));
-        GOLDEN_BOW_ITEM = Registry.register(Registry.ITEM, createId("golden_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(500)));
-        DIAMOND_BOW_ITEM = Registry.register(Registry.ITEM, createId("diamond_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(100)));
-        NETHERITE_BOW_ITEM = Registry.register(Registry.ITEM, createId("netherite_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(1500).fireproof()));
+        WOODEN_BOW_ITEM = Registry.register(Registry.ITEM, id("wooden_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(250)));
+        STONE_BOW_ITEM = Registry.register(Registry.ITEM, id("stone_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(500)));
+        IRON_BOW_ITEM = Registry.register(Registry.ITEM, id("iron_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(750)));
+        GOLDEN_BOW_ITEM = Registry.register(Registry.ITEM, id("golden_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(500)));
+        DIAMOND_BOW_ITEM = Registry.register(Registry.ITEM, id("diamond_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(100)));
+        NETHERITE_BOW_ITEM = Registry.register(Registry.ITEM, id("netherite_big_bow"), new BigBowItem(new Item.Settings().group(group).maxCount(1).maxDamage(1500).fireproof()));
         loottables(LootTables.RUINED_PORTAL_CHEST, GOLDEN_BOW_ITEM, IRON_BOW_ITEM, 5*2, 50*2);
         loottables(LootTables.VILLAGE_WEAPONSMITH_CHEST, DIAMOND_BOW_ITEM, IRON_BOW_ITEM, 5*2, 2*2);
         loottables(LootTables.BASTION_BRIDGE_CHEST, GOLDEN_BOW_ITEM, IRON_BOW_ITEM, 5*2, 4*2);

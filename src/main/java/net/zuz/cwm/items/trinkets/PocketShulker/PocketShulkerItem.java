@@ -34,6 +34,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+import static net.zuz.cwm.util.Helper.id;
+
 public class PocketShulkerItem extends TrinketItem implements TrinketRenderer {
 
     public PocketShulkerItem(Settings settings) {
@@ -59,7 +61,7 @@ public class PocketShulkerItem extends TrinketItem implements TrinketRenderer {
         }
     }
 
-    private static final Identifier TEXTURE = new Identifier("cwm", "textures/item/trinkets/shulk_model.png");
+    private static final Identifier TEXTURE = id("textures/item/trinkets/shulk_model.png");
     private BipedEntityModel<LivingEntity> model;
     public static PocketShulkerItem item;
     @Override
@@ -85,7 +87,7 @@ public class PocketShulkerItem extends TrinketItem implements TrinketRenderer {
     }
     public static void registry(ItemGroup group)
     {
-        item = Registry.register(Registry.ITEM, new Identifier("cwm", "shulk"), new PocketShulkerItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
+        item = Registry.register(Registry.ITEM, id("shulk"), new PocketShulkerItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
     }
     public static void renderregistry()
     {

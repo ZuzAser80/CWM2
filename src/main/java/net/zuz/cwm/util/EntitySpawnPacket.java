@@ -19,8 +19,10 @@ import net.minecraft.world.World;
 
 import java.util.UUID;
 
+import static net.zuz.cwm.util.Helper.id;
+
 public class EntitySpawnPacket {
-    public static final Identifier ID = new Identifier("cwm", "cwmspawn_entity");
+    public static final Identifier ID = id("cwmspawn_entity");
 
     public static Packet<?> createPacket(Entity entity) {
         PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());

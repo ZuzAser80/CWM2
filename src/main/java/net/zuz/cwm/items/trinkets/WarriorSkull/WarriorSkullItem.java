@@ -30,6 +30,8 @@ import net.zuz.cwm.items.trinkets.TntFrog.TntFrogItem;
 
 import java.util.List;
 
+import static net.zuz.cwm.util.Helper.id;
+
 public class WarriorSkullItem extends TrinketItem implements TrinketRenderer {
 
     public WarriorSkullItem(Settings settings) {
@@ -40,7 +42,7 @@ public class WarriorSkullItem extends TrinketItem implements TrinketRenderer {
         entity.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH,400,0, true, false));
         entity.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION,400,1, true, false));
     }
-    private static final Identifier TEXTURE = new Identifier("cwm", "textures/item/trinkets/warrior_skull_model.png");
+    private static final Identifier TEXTURE = id("textures/item/trinkets/warrior_skull_model.png");
     private BipedEntityModel<LivingEntity> model;
     private static WarriorSkullItem item;
 
@@ -67,7 +69,7 @@ public class WarriorSkullItem extends TrinketItem implements TrinketRenderer {
     }
     public static void registry(ItemGroup group)
     {
-        item = Registry.register(Registry.ITEM, new Identifier("cwm", "warrior_skull"), new WarriorSkullItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
+        item = Registry.register(Registry.ITEM, id("warrior_skull"), new WarriorSkullItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
     }
     public static void renderregistry()
     {

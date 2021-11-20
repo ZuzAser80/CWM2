@@ -16,15 +16,22 @@ import net.minecraft.util.registry.Registry;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ThrowingKnifeEntityRenderer  extends EntityRenderer<ThrowingKnifeEntity> {
-    private final ThrowingKnifeEntityModel model = new ThrowingKnifeEntityModel(ThrowingKnifeEntityModel.getTexturedModelData().createModel());
+import static net.zuz.cwm.util.Helper.id;
+
+public class ThrowingKnifeEntityRenderer extends EntityRenderer<ThrowingKnifeEntity> {
     private static final Map<EntityType<?>, Identifier> TEXTURES = new HashMap<>();
+    private final ThrowingKnifeEntityModel model = new ThrowingKnifeEntityModel(ThrowingKnifeEntityModel.getTexturedModelData().createModel());
 
     public ThrowingKnifeEntityRenderer(EntityRendererFactory.Context context, ItemRenderer itemRenderer) {
         super(context);
     }
 
-
+    public static Identifier getTexture(EntityType<?> type) {
+        if (!TEXTURES.containsKey(type)) {
+            TEXTURES.put(type, id("textures/entity/" + Registry.ENTITY_TYPE.getId(type).getPath() + ".png"));
+        }
+        return TEXTURES.get(type);
+    }
 
     @Override
     public void render(ThrowingKnifeEntity tridentEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
@@ -40,12 +47,5 @@ public class ThrowingKnifeEntityRenderer  extends EntityRenderer<ThrowingKnifeEn
     @Override
     public Identifier getTexture(ThrowingKnifeEntity javelin_Entity) {
         return getTexture(javelin_Entity.getType());
-    }
-
-    public static Identifier getTexture(EntityType<?> type) {
-        if (!TEXTURES.containsKey(type)) {
-            TEXTURES.put(type, new Identifier("cwm", "textures/entity/" + Registry.ENTITY_TYPE.getId(type).getPath() + ".png"));
-        }
-        return TEXTURES.get(type);
     }
 }

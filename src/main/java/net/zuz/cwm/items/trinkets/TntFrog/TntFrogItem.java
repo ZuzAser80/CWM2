@@ -27,6 +27,8 @@ import net.zuz.cwm.items.trinkets.PocketShulker.PocketShulkerItem;
 
 import java.util.List;
 
+import static net.zuz.cwm.util.Helper.id;
+
 public class TntFrogItem extends TrinketItem implements TrinketRenderer {
 
     public TntFrogItem(Settings settings) {
@@ -48,7 +50,7 @@ public class TntFrogItem extends TrinketItem implements TrinketRenderer {
             world.createExplosion(entity, entity.getAttacking().getX(), entity.getAttacking().getY(), entity.getAttacking().getZ(), 3, Explosion.DestructionType.DESTROY);
         }
     }
-    private static final Identifier TEXTURE = new Identifier("cwm", "textures/item/trinkets/tnt_frog_model.png");
+    private static final Identifier TEXTURE = id("textures/item/trinkets/tnt_frog_model.png");
     private BipedEntityModel<LivingEntity> model;
     private static TntFrogItem item;
 
@@ -71,7 +73,7 @@ public class TntFrogItem extends TrinketItem implements TrinketRenderer {
     }
     public static void registry(ItemGroup group)
     {
-        item = Registry.register(Registry.ITEM, new Identifier("cwm", "tnt_frog"), new TntFrogItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
+        item = Registry.register(Registry.ITEM, id("tnt_frog"), new TntFrogItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
     }
     public static void renderregistry()
     {

@@ -22,6 +22,8 @@ import net.minecraft.world.gen.feature.ConfiguredStructureFeature;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
+import static net.zuz.cwm.util.Helper.id;
+
 public class NetherShipFeature extends StructureFeature<DefaultFeatureConfig> {
     public NetherShipFeature(Codec<DefaultFeatureConfig> codec) {
         super(codec);
@@ -29,8 +31,8 @@ public class NetherShipFeature extends StructureFeature<DefaultFeatureConfig> {
     public static void registry()
     {
         final StructureFeature<DefaultFeatureConfig> NETHER_SHIP_BOTTOM = new NetherShipFeature(DefaultFeatureConfig.CODEC);
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier("cwm", "nether_ship_bottom"), NetherShipGenerator.NetherShipBottom);
-        FabricStructureBuilder.create(new Identifier("cwm", "nether_ship"), NETHER_SHIP_BOTTOM)
+        Registry.register(Registry.STRUCTURE_PIECE, id("nether_ship_bottom"), NetherShipGenerator.NetherShipBottom);
+        FabricStructureBuilder.create(id("nether_ship"), NETHER_SHIP_BOTTOM)
                 .step(GenerationStep.Feature.SURFACE_STRUCTURES)
                 .defaultConfig(32, 8, 12345)
                 .adjustsSurface()

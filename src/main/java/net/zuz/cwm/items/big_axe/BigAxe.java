@@ -10,10 +10,9 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+import static net.zuz.cwm.util.Helper.id;
+
 public class BigAxe {
-    private static Identifier id(String name) {
-        return new Identifier("cwm", name);
-    }
 
     public static void registry(ItemGroup group) {
         BigAxeItem wooden_greater_axe = Registry.register(Registry.ITEM, id("wooden_greater_axe"), new BigAxeItem(ToolMaterials.WOOD, 7, 0f, new Item.Settings().group(group).maxCount(1).maxDamage(250)));

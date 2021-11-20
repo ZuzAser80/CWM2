@@ -4,8 +4,6 @@ import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketItem;
 import dev.emi.trinkets.api.client.TrinketRenderer;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumer;
@@ -26,32 +24,40 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
-import net.zuz.cwm.items.trinkets.WarriorSkull.WarriorSkullItem;
 
 import java.util.List;
 
+import static net.zuz.cwm.util.Helper.id;
+
 public class MagmaItem extends TrinketItem implements TrinketRenderer {
 
+    private static final Identifier TEXTURE = id("textures/item/trinkets/magma_model.png");
+    private static MagmaItem item;
+    private final int counter = 0;
+    private BipedEntityModel<LivingEntity> model;
     public MagmaItem(Settings settings) {
         super(settings);
     }
-    private int counter = 0;
+
+    public static void registry(ItemGroup group) {
+        item = Registry.register(Registry.ITEM, id("magma"), new MagmaItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
+    }
+
+    public static void renderregistry() {
+        TrinketRendererRegistry.registerRenderer(MagmaItem.item, MagmaItem.item);
+    }
 
     @Override
     public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
         World world = entity.world;
-        entity.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE,400,0, true, false));
-        if(entity.getAttacker() != null)
-        {
+        entity.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 400, 0, true, false));
+        if (entity.getAttacker() != null) {
             double d = entity.getAttacker().getX() - entity.getX();
             double e = entity.getAttacker().getZ() - entity.getZ();
             double f = Math.max(d * d + e * e, 0.001D);
             entity.getAttacker().addVelocity(d / f, 0.15D, e / f);
         }
     }
-    private static final Identifier TEXTURE = new Identifier("cwm", "textures/item/trinkets/magma_model.png");
-    private BipedEntityModel<LivingEntity> model;
-    private static MagmaItem item;
 
     @Override
     public void render(ItemStack stack, SlotReference slotReference, EntityModel<? extends LivingEntity> contextModel, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, LivingEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
@@ -72,14 +78,7 @@ public class MagmaItem extends TrinketItem implements TrinketRenderer {
 
         return this.model;
     }
-    public static void registry(ItemGroup group)
-    {
-        item = Registry.register(Registry.ITEM, new Identifier("cwm", "magma"), new MagmaItem(new Item.Settings().group(group).rarity(Rarity.RARE).maxCount(1).fireproof()));
-    }
-    public static void renderregistry()
-    {
-        TrinketRendererRegistry.registerRenderer(MagmaItem.item, (TrinketRenderer) MagmaItem.item);
-    }
+
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         tooltip.add(new TranslatableText("item.cwm.magma.tooltip").formatted(Formatting.YELLOW));
