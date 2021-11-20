@@ -36,6 +36,7 @@ public class BigBow {
         loottables(LootTables.BASTION_TREASURE_CHEST, DIAMOND_BOW_ITEM, IRON_BOW_ITEM, 5*2, 2*2);
         loottables(LootTables.VILLAGE_ARMORER_CHEST, DIAMOND_BOW_ITEM, IRON_BOW_ITEM, 10*2, 5*2);
 
+
     }
     private static void loottables(Identifier CHEST, BigBowItem glaive_1, BigBowItem glaive_2, int weight_1, int weight_2)
     {
