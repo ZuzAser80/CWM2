@@ -10,6 +10,10 @@ public class Player {
         health -= damage;
     }
 
+    public int getHealthPoint() {
+        return healthPoint;
+    }
+
     public String getHealth() {
         return "self health = " + healthPoint +", common health = " + health;
     }

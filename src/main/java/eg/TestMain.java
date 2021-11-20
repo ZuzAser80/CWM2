@@ -17,18 +17,24 @@ public class TestMain {
         var playerCount = Integer.parseInt(reader.readLine());
         var players = new Player[playerCount];
 
+        Player.health = 1000;
+
         for (var i = 0; i < playerCount; i++) {
             players[i] = new Player();
         }
 
         var rnd = new Random();
         var continuePlay = true;
+        var counter = 0;
         while (continuePlay) {
+            println("======= Round " + (++counter) + " =========");
+
             for (var i = 0;i < players.length; i++) {
                 players[i].hit((int)(rnd.nextDouble() * 10));
                 println("player["+i+"]: "+ players[i].getHealth());
-                if (players[i].health <= 0) {
-                    println("game end");
+
+                if (players[i].getHealthPoint() <= 0) {
+                    println("!!!!! game end !!!!!");
                     continuePlay = false;
                     break;
                 }
