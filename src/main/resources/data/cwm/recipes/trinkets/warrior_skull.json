@@ -5,10 +5,10 @@
       "item": "minecraft:leather_helmet"
     },
     {
-      "item": "minecraft:lantern"
+      "item": "minecraft:bone"
     }
   ],
   "result": {
-    "item": "cwm:mining_helmet"
+    "item": "cwm:warrior_skull"
   }
 }

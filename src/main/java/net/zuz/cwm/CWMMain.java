@@ -1,14 +1,14 @@
 package net.zuz.cwm;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
-import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.Items;
-import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.provider.number.LootNumberProvider;
+import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
+import net.minecraft.structure.StructurePieceType;
 import net.minecraft.util.Identifier;
-import net.zuz.cwm.items.ReinforcedIron.ReinforcedIronArmorMaterial;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.world.gen.feature.StructureFeature;
+import net.zuz.cwm.items.reinforced_iron.ReinforcedIronArmorMaterial;
 import net.zuz.cwm.items.materials.Materials;
 import net.zuz.cwm.items.throwing_knife.ThrowingKnife;
 import net.zuz.cwm.items.big_axe.BigAxe;
@@ -24,6 +24,8 @@ import net.zuz.cwm.items.trinkets.PocketShulker.PocketShulkerItem;
 import net.zuz.cwm.items.trinkets.RoboticClaw.RoboticClawItem;
 import net.zuz.cwm.items.trinkets.TntFrog.TntFrogItem;
 import net.zuz.cwm.items.trinkets.WarriorSkull.WarriorSkullItem;
+import net.zuz.cwm.structures.nether_ship.NetherShipFeature;
+import net.zuz.cwm.structures.nether_ship.NetherShipGenerator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -65,6 +67,8 @@ public class CWMMain implements ModInitializer {
 		BonkItem.renderregistry();
 		ItemTabs.logo();
 		ReinforcedIronArmorMaterial.registry(tabs.getMaterials(), tabs.getArmor());
+		NetherShipGenerator.registry();
+		NetherShipFeature.registry();
 
 	}
 }

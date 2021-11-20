@@ -60,6 +60,7 @@ public class ThrowingKnife {
         loottables(LootTables.BASTION_BRIDGE_CHEST, GOLDEN_ANCHOR_ITEM, IRON_ANCHOR_ITEM, 5, 4);
         loottables(LootTables.BASTION_TREASURE_CHEST, DIAMOND_ANCHOR_ITEM, IRON_ANCHOR_ITEM, 5, 2);
         loottables(LootTables.VILLAGE_ARMORER_CHEST, DIAMOND_ANCHOR_ITEM, IRON_ANCHOR_ITEM, 10, 5);
+        loottables(LootTables.BASTION_HOGLIN_STABLE_CHEST, DIAMOND_ANCHOR_ITEM, GOLDEN_ANCHOR_ITEM, 10, 5);
         loottables(LootTables.SPAWN_BONUS_CHEST, WOODEN_ANCHOR_ITEM, STONE_ANCHOR_ITEM, 2, 6);
     }
     private static void loottables(Identifier CHEST, ThrowingKnifeItem big_axe_1, ThrowingKnifeItem big_axe_2, int weight_1, int weight_2)

@@ -29,6 +29,7 @@ public class Glaive {
         loottables(LootTables.VILLAGE_WEAPONSMITH_CHEST, diamond_glaive, iron_glaive, 5, 2);
         loottables(LootTables.BASTION_BRIDGE_CHEST, golden_glaive, iron_glaive, 5, 4);
         loottables(LootTables.BASTION_TREASURE_CHEST, diamond_glaive, iron_glaive, 5, 2);
+        loottables(LootTables.BASTION_HOGLIN_STABLE_CHEST, diamond_glaive, iron_glaive, 10, 5);
         loottables(LootTables.VILLAGE_ARMORER_CHEST, diamond_glaive, iron_glaive, 10, 5);
 
     }
