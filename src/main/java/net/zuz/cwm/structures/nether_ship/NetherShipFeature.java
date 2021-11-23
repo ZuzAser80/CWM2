@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
 import net.minecraft.structure.StructureManager;
+import net.minecraft.structure.StructurePieceType;
 import net.minecraft.structure.StructureStart;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Identifier;
@@ -28,24 +29,26 @@ public class NetherShipFeature extends StructureFeature<DefaultFeatureConfig> {
     public NetherShipFeature(Codec<DefaultFeatureConfig> codec) {
         super(codec);
     }
+    public static StructurePieceType nether_ship;
+
     public static void registry()
     {
         final StructureFeature<DefaultFeatureConfig> NETHER_SHIP_BOTTOM = new NetherShipFeature(DefaultFeatureConfig.CODEC);
-        Registry.register(Registry.STRUCTURE_PIECE, id("nether_ship_bottom"), NetherShipGenerator.NetherShipBottom);
-        FabricStructureBuilder.create(id("nether_ship"), NETHER_SHIP_BOTTOM)
+        nether_ship = Registry.register(Registry.STRUCTURE_PIECE, id("nether_ship_piece"), NetherShipGenerator.nether_ship_piece::new);
+        FabricStructureBuilder.create(id("nethership"), NETHER_SHIP_BOTTOM)
                 .step(GenerationStep.Feature.SURFACE_STRUCTURES)
                 .defaultConfig(32, 8, 12345)
                 .adjustsSurface()
                 .register();
         final ConfiguredStructureFeature<?, ?> MY_CONFIGURED = NETHER_SHIP_BOTTOM.configure(DefaultFeatureConfig.DEFAULT);
-        RegistryKey<ConfiguredStructureFeature<?, ?>> myConfigured = RegistryKey.of(Registry.CONFIGURED_STRUCTURE_FEATURE_KEY, new Identifier("cmw", "nether_ship"));
+        RegistryKey<ConfiguredStructureFeature<?, ?>> myConfigured = RegistryKey.of(Registry.CONFIGURED_STRUCTURE_FEATURE_KEY, new Identifier("cmw", "nethership"));
         BuiltinRegistries.add(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, myConfigured.getValue(), MY_CONFIGURED);
         BiomeModifications.addStructure(BiomeSelectors.foundInTheNether(), myConfigured);
     }
 
     @Override
     public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        return Start::new;
+        return NetherShipFeature.Start::new;
     }
 
     public static class Start extends StructureStart<DefaultFeatureConfig> {
@@ -55,14 +58,11 @@ public class NetherShipFeature extends StructureFeature<DefaultFeatureConfig> {
 
         @Override
         public void init(DynamicRegistryManager registryManager, ChunkGenerator chunkGenerator, StructureManager manager, ChunkPos pos, Biome biome, DefaultFeatureConfig config, HeightLimitView world) {
-            int x = pos.x * 16;
-            int z = pos.z * 16;
-            int y = 240;
-            BlockPos blockPos = new BlockPos(x, y, z);
-            BlockRotation rotation = BlockRotation.random(this.random);
-            NetherShipGenerator.addPieces(manager, blockPos, rotation, this.children);
-            this.setBoundingBoxFromChildren();
+            BlockPos blockPos = new BlockPos(pos.getStartX(), 140, pos.getStartZ());
+            BlockRotation blockRotation = BlockRotation.random(this.random);
+            NetherShipGenerator.create(manager, blockPos, blockRotation, this, this.random);
         }
+
 
 
         // Called when the world attempts to spawn in a new structure, and is the gap between your feature and generator.

@@ -1,13 +1,6 @@
 package net.zuz.cwm;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
-import net.minecraft.structure.StructurePieceType;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.StructureFeature;
 import net.zuz.cwm.items.reinforced_iron.ReinforcedIronArmorMaterial;
 import net.zuz.cwm.items.materials.Materials;
 import net.zuz.cwm.items.throwing_knife.ThrowingKnife;
