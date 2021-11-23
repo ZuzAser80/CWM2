@@ -17,8 +17,8 @@ import net.zuz.cwm.items.trinkets.PocketShulker.PocketShulkerItem;
 import net.zuz.cwm.items.trinkets.RoboticClaw.RoboticClawItem;
 import net.zuz.cwm.items.trinkets.TntFrog.TntFrogItem;
 import net.zuz.cwm.items.trinkets.WarriorSkull.WarriorSkullItem;
-import net.zuz.cwm.structures.nether_ship.NetherShipFeature;
-import net.zuz.cwm.structures.nether_ship.NetherShipGenerator;
+import net.zuz.cwm.structures.nether_ship.nether_ship_feature;
+import net.zuz.cwm.structures.nether_ship.nether_ship_generator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -60,8 +60,6 @@ public class CWMMain implements ModInitializer {
 		BonkItem.renderregistry();
 		ItemTabs.logo();
 		ReinforcedIronArmorMaterial.registry(tabs.getMaterials(), tabs.getArmor());
-		NetherShipGenerator.registry();
-		NetherShipFeature.registry();
-
+		nether_ship_feature.registry();
 	}
 }
