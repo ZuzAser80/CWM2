@@ -1,7 +1,8 @@
 package net.zuz.cwm;
 
 import net.fabricmc.api.ModInitializer;
-import net.zuz.cwm.items.reinforced_iron.ReinforcedIronArmorMaterial;
+import net.minecraft.util.registry.Registry;
+import net.zuz.cwm.armor.reinforced_iron.ReinforcedIronArmorMaterial;
 import net.zuz.cwm.items.materials.Materials;
 import net.zuz.cwm.items.throwing_knife.ThrowingKnife;
 import net.zuz.cwm.items.big_axe.BigAxe;
@@ -17,8 +18,9 @@ import net.zuz.cwm.items.trinkets.PocketShulker.PocketShulkerItem;
 import net.zuz.cwm.items.trinkets.RoboticClaw.RoboticClawItem;
 import net.zuz.cwm.items.trinkets.TntFrog.TntFrogItem;
 import net.zuz.cwm.items.trinkets.WarriorSkull.WarriorSkullItem;
-import net.zuz.cwm.structures.nether_ship.nether_ship_feature;
-import net.zuz.cwm.structures.nether_ship.nether_ship_generator;
+import net.zuz.cwm.structures.end_train.EndTrainFeature;
+import net.zuz.cwm.structures.end_ufo.EndUfoFeature;
+import net.zuz.cwm.structures.nether_ship.NetherShipFeature;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -60,6 +62,8 @@ public class CWMMain implements ModInitializer {
 		BonkItem.renderregistry();
 		ItemTabs.logo();
 		ReinforcedIronArmorMaterial.registry(tabs.getMaterials(), tabs.getArmor());
-		nether_ship_feature.registry();
+		NetherShipFeature.registry();
+		EndUfoFeature.registry();
+		EndTrainFeature.registry();
 	}
 }

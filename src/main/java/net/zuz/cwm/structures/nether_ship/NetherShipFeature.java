@@ -22,14 +22,14 @@ import net.minecraft.world.gen.feature.StructureFeature;
 
 import static net.zuz.cwm.util.Helper.id;
 
-public class nether_ship_feature extends StructureFeature<DefaultFeatureConfig> {
+public class NetherShipFeature extends StructureFeature<DefaultFeatureConfig> {
 
-    public nether_ship_feature(Codec<DefaultFeatureConfig> codec) {
+    public NetherShipFeature(Codec<DefaultFeatureConfig> codec) {
         super(codec);
     }
 
     public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        return nether_ship_feature.Start::new;
+        return NetherShipFeature.Start::new;
     }
 
     public static class Start extends MarginedStructureStart<DefaultFeatureConfig> {
@@ -41,23 +41,23 @@ public class nether_ship_feature extends StructureFeature<DefaultFeatureConfig> 
         public void init(DynamicRegistryManager registryManager, ChunkGenerator chunkGenerator, StructureManager manager, ChunkPos pos, Biome biome, DefaultFeatureConfig config, HeightLimitView world) {
             int i = pos.getStartX() + this.random.nextInt(16);
             int j = pos.getStartZ() + this.random.nextInt(16);
-            int k = 130;
-            nether_ship_generator.addPieces(manager, this, this.random, new BlockPos(i, k, j));
+            int k = 200;
+            NetherShipGenerator.addPieces(manager, this, this.random, new BlockPos(i, k, j));
         }
 
     }
-    public static StructurePieceType nether_ship_piece = nether_ship_generator.Piece::new;
+    public static StructurePieceType NetherShipPiece = NetherShipGenerator.MainPiece::new;
     public static void registry()
     {
-        final StructureFeature<DefaultFeatureConfig> NETHER_SHIP_BOTTOM = new nether_ship_feature(DefaultFeatureConfig.CODEC);
-        Registry.register(Registry.STRUCTURE_PIECE, id("nether_ship_piece"), nether_ship_piece);
+        final StructureFeature<DefaultFeatureConfig> NETHER_SHIP_BOTTOM = new NetherShipFeature(DefaultFeatureConfig.CODEC);
+        Registry.register(Registry.STRUCTURE_PIECE, id("nether_ship_piece"), NetherShipPiece);
         FabricStructureBuilder.create(id("nether_ship"), NETHER_SHIP_BOTTOM)
                 .step(GenerationStep.Feature.SURFACE_STRUCTURES)
-                .defaultConfig(32, 8, 12345)
+                .defaultConfig(256, 16, 14245)
                 .adjustsSurface()
                 .register();
         final ConfiguredStructureFeature<?, ?> MY_CONFIGURED = NETHER_SHIP_BOTTOM.configure(DefaultFeatureConfig.DEFAULT);
-        RegistryKey<ConfiguredStructureFeature<?, ?>> myConfigured = RegistryKey.of(Registry.CONFIGURED_STRUCTURE_FEATURE_KEY, new Identifier("cmw", "nethership"));
+        RegistryKey<ConfiguredStructureFeature<?, ?>> myConfigured = RegistryKey.of(Registry.CONFIGURED_STRUCTURE_FEATURE_KEY, new Identifier("cmw", "nether_ship"));
         BuiltinRegistries.add(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, myConfigured.getValue(), MY_CONFIGURED);
         BiomeModifications.addStructure(BiomeSelectors.foundInTheNether(), myConfigured);
     }
