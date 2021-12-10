@@ -43,7 +43,7 @@ public class EndCatacombsFeature extends StructureFeature<StructurePoolFeatureCo
         public void init(DynamicRegistryManager registryManager, ChunkGenerator chunkGenerator, StructureManager manager, ChunkPos pos, Biome biome, StructurePoolFeatureConfig config, HeightLimitView world) {
             StructurePoolBasedGenerator.generate(
                     registryManager, config, PoolStructurePiece::new, chunkGenerator, manager,
-                    new BlockPos(pos.getStartX(), 60, pos.getStartZ()),
+                    new BlockPos(pos.getStartX(), 40, pos.getStartZ()),
                     this, this.random, true, false, world
             );
             this.setBoundingBoxFromChildren();
@@ -57,7 +57,8 @@ public class EndCatacombsFeature extends StructureFeature<StructurePoolFeatureCo
         StructureFeature<StructurePoolFeatureConfig> END_TRAIN_FEATURE_CONFIG = new EndCatacombsFeature(StructurePoolFeatureConfig.CODEC);
         ConfiguredStructureFeature<StructurePoolFeatureConfig, ?> END_TRAIN_FEATURE =
                 END_TRAIN_FEATURE_CONFIG.configure
-                        (new StructurePoolFeatureConfig(() -> EndCatacombsGenerator.POOL, 7));
+                        (new StructurePoolFeatureConfig(() ->
+                                EndCatacombsGenerator.POOL, 6));
 
         //registering stuff
         RegistryKey<ConfiguredStructureFeature<?, ?>> myConfigured = RegistryKey.of(Registry.CONFIGURED_STRUCTURE_FEATURE_KEY, END_TRAIN_ID);
