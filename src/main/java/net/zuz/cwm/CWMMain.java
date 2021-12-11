@@ -61,8 +61,8 @@ public class CWMMain implements ModInitializer {
 		BonkItem.renderregistry();
 		ItemTabs.logo();
 		ReinforcedIronArmorMaterial.registry(tabs.getMaterials(), tabs.getArmor());
-		NetherShipFeature.registry();
-		EndUfoFeature.registry();
+		//NetherShipFeature.registry();
+		//EndUfoFeature.registry();
 		EndCatacombsFeature.registry();
 	}
 }
