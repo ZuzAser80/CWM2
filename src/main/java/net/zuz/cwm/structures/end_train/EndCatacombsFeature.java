@@ -41,9 +41,10 @@ public class EndCatacombsFeature extends StructureFeature<StructurePoolFeatureCo
 
         @Override
         public void init(DynamicRegistryManager registryManager, ChunkGenerator chunkGenerator, StructureManager manager, ChunkPos pos, Biome biome, StructurePoolFeatureConfig config, HeightLimitView world) {
+            EndCatacombsGenerator.init();
             StructurePoolBasedGenerator.generate(
                     registryManager, config, PoolStructurePiece::new, chunkGenerator, manager,
-                    new BlockPos(pos.getStartX(), 40, pos.getStartZ()),
+                    new BlockPos(pos.getStartX(), 100, pos.getStartZ()),
                     this, this.random, true, false, world
             );
             this.setBoundingBoxFromChildren();
@@ -58,18 +59,15 @@ public class EndCatacombsFeature extends StructureFeature<StructurePoolFeatureCo
         ConfiguredStructureFeature<StructurePoolFeatureConfig, ?> END_TRAIN_FEATURE =
                 END_TRAIN_FEATURE_CONFIG.configure
                         (new StructurePoolFeatureConfig(() ->
-                                EndCatacombsGenerator.POOL, 6));
-
+                                EndCatacombsGenerator.POOL, 4));
         //registering stuff
-        RegistryKey<ConfiguredStructureFeature<?, ?>> myConfigured = RegistryKey.of(Registry.CONFIGURED_STRUCTURE_FEATURE_KEY, END_TRAIN_ID);
-        BuiltinRegistries.add(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, myConfigured.getValue(), END_TRAIN_FEATURE);
-
+        Registry.register(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, END_TRAIN_ID, END_TRAIN_FEATURE);
         FabricStructureBuilder.create(END_TRAIN_ID, END_TRAIN_FEATURE_CONFIG)
-                .step(GenerationStep.Feature.UNDERGROUND_STRUCTURES)
+                .step(GenerationStep.Feature.SURFACE_STRUCTURES)
                 .defaultConfig(256, 16, 23449)
-                .adjustsSurface()
                 .register();
-        BiomeModifications.addStructure(BiomeSelectors.foundInTheEnd(), myConfigured);
+        //BiomeModifications.addStructure(BiomeSelectors.foundInTheEnd(), myConfigured);
         //adding it to end only, shall we?
+        EndCatacombsGenerator.init();
     }
 }

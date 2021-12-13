@@ -52,7 +52,7 @@ public class NetherShipGenerator {
 
         }
         //public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos pos) {
-        //    boundingBox.encompass(this.structure.calculateBoundingBox(this.placementData, this.pos));
+        //    boundingBox.encompass(this.structures.calculateBoundingBox(this.placementData, this.pos));
         //    return super.generate(world, structureAccessor, chunkGenerator, random, boundingBox, chunkPos, pos);
         //}
     }

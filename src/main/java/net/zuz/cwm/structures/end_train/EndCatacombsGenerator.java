@@ -15,7 +15,7 @@ public class EndCatacombsGenerator {
 
     public static void init() {
     }
-    //cwm:end_catacombs_treasure
+    //STRUCTURE VOID TO EVERY PIECE. YES RIGHT NOW. I MEAN RIGHT FUCKING NOW
     static {
         POOL = StructurePools.register
                 (new StructurePool(new Identifier("cwm", "end_catacombs_pool"),
@@ -23,35 +23,33 @@ public class EndCatacombsGenerator {
                         ImmutableList.of(
                                 Pair.of(StructurePoolElement.ofLegacySingle("end_catacombs/end_catacombs_corridor_1"), 3),
                                 Pair.of(StructurePoolElement.ofLegacySingle("end_catacombs/end_catacombs_corridor_2"), 1),
-                                Pair.of(StructurePoolElement.ofLegacySingle("end_catacombs/end_catacombs_upstairs_1"), 2),
+                                Pair.of(StructurePoolElement.ofLegacySingle("end_catacombs/end_catacombs_corridor_3"), 2),
+                                Pair.of(StructurePoolElement.ofLegacySingle("end_catacombs/end_catacombs_upstairs_1"), 4),
                                 Pair.of(StructurePoolElement.ofLegacySingle("end_catacombs/end_catacombs_crossing_1"), 4),
                                 Pair.of(StructurePoolElement.ofLegacySingle("end_catacombs/end_catacombs_stairs_1"), 3),
                                 Pair.of(StructurePoolElement.ofLegacySingle("end_catacombs/end_catacombs_downstairs_1"), 2)
-
-
-
                         ),
                 StructurePool.Projection.RIGID)
                 );
-        StructurePools.register
-                (new StructurePool(new Identifier("cwm", "end_catacombs_treasure"),
-                        new Identifier("empty"),
-                        ImmutableList.of(
-                                Pair.of(StructurePoolElement.ofLegacySingle("end_catacombs/treasure/end_catacombs_treasure_chest_1"), 4),
-                                Pair.of(StructurePoolElement.ofLegacySingle("end_catacombs/treasure/end_catacombs_ender_chest"), 1),
-                                Pair.of(StructurePoolElement.ofEmpty(), 3)
-                        ),
-                        StructurePool.Projection.RIGID)
-                );
-        StructurePools.register
-                (new StructurePool(new Identifier("cwm", "end_catacombs_mobs"),
-                        new Identifier("empty"),
-                        ImmutableList.of(
-                                Pair.of(StructurePoolElement.ofLegacySingle("end_catacombs/mobs/end_catacombs_spawner_1"), 1),
-                                Pair.of(StructurePoolElement.ofLegacySingle("end_catacombs/mobs/end_catacombs_spawner_2"), 1),
-                                Pair.of(StructurePoolElement.ofEmpty(), 2)
-                                ),
-                        StructurePool.Projection.RIGID)
-                );
+        //StructurePools.register
+        //        (new StructurePool(new Identifier("cwm", "end_catacombs_treasure"),
+        //                new Identifier("empty"),
+        //                ImmutableList.of(
+        //                        Pair.of(StructurePoolElement.ofLegacySingle("end_catacombs/treasure/end_catacombs_treasure_chest_1"), 4),
+        //                        Pair.of(StructurePoolElement.ofLegacySingle("end_catacombs/treasure/end_catacombs_ender_chest"), 1),
+        //                        Pair.of(StructurePoolElement.ofEmpty(), 3)
+        //                ),
+        //                StructurePool.Projection.RIGID)
+        //        );
+        //StructurePools.register
+        //        (new StructurePool(new Identifier("cwm", "end_catacombs_mobs"),
+        //                new Identifier("empty"),
+        //                ImmutableList.of(
+        //                        Pair.of(StructurePoolElement.ofLegacySingle("end_catacombs/mobs/end_catacombs_spawner_1"), 1),
+        //                        Pair.of(StructurePoolElement.ofLegacySingle("end_catacombs/mobs/end_catacombs_spawner_2"), 1),
+        //                        Pair.of(StructurePoolElement.ofEmpty(), 2)
+        //                        ),
+        //                StructurePool.Projection.RIGID)
+        //        );
     }
 }
