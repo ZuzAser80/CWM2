@@ -18,8 +18,7 @@ import net.zuz.cwm.items.trinkets.RoboticClaw.RoboticClawItem;
 import net.zuz.cwm.items.trinkets.TntFrog.TntFrogItem;
 import net.zuz.cwm.items.trinkets.WarriorSkull.WarriorSkullItem;
 import net.zuz.cwm.structures.end_train.EndCatacombsFeature;
-import net.zuz.cwm.structures.end_ufo.EndUfoFeature;
-import net.zuz.cwm.structures.nether_ship.NetherShipFeature;
+import net.zuz.cwm.structures.quarry.EndTowerFeature;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -64,5 +63,6 @@ public class CWMMain implements ModInitializer {
 		//NetherShipFeature.registry();
 		//EndUfoFeature.registry();
 		EndCatacombsFeature.registry();
+		EndTowerFeature.registry();
 	}
 }

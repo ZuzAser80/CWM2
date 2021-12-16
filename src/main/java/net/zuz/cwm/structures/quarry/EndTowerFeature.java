@@ -1,4 +1,4 @@
-package net.zuz.cwm.structures.end_train;
+package net.zuz.cwm.structures.quarry;
 
 import com.mojang.serialization.Codec;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
@@ -16,23 +16,24 @@ import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.HeightLimitView;
+import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.ConfiguredStructureFeature;
+import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 
+import static net.zuz.cwm.util.Helper.id;
 
-
-import static net.zuz.cwm.util.Helper.*;
-
-public class EndCatacombsFeature extends StructureFeature<StructurePoolFeatureConfig> {
-    public EndCatacombsFeature(Codec<StructurePoolFeatureConfig> codec) {
+public class EndTowerFeature extends StructureFeature<StructurePoolFeatureConfig> {
+    public EndTowerFeature(Codec<StructurePoolFeatureConfig> codec) {
         super(codec);
     }
 
     @Override
     public StructureStartFactory<StructurePoolFeatureConfig> getStructureStartFactory() {
-        return EndCatacombsFeature.Start::new;
+        return EndTowerFeature.Start::new;
     }
     public static class Start extends MarginedStructureStart<StructurePoolFeatureConfig> {
         public Start(StructureFeature<StructurePoolFeatureConfig> s, ChunkPos c, int i, long l) {
@@ -41,34 +42,34 @@ public class EndCatacombsFeature extends StructureFeature<StructurePoolFeatureCo
 
         @Override
         public void init(DynamicRegistryManager registryManager, ChunkGenerator chunkGenerator, StructureManager manager, ChunkPos pos, Biome biome, StructurePoolFeatureConfig config, HeightLimitView world) {
-            EndCatacombsGenerator.init();
+            ///EndCatacombsGenerator.init();
             StructurePoolBasedGenerator.generate(
                     registryManager, config, PoolStructurePiece::new, chunkGenerator, manager,
-                    new BlockPos(pos.getStartX(), 100, pos.getStartZ()),
+                    new BlockPos(pos.getStartX(), chunkGenerator.getHeight(pos.x << 4, pos.z << 4, Heightmap.Type.WORLD_SURFACE_WG, world), pos.getStartZ()),
                     this, this.random, true, false, world
             );
             this.setBoundingBoxFromChildren();
         }
     }
-
+    
     //DO NOT TOUCH THIS SHIT
     public static void registry() {
         //values
-        Identifier END_TRAIN_ID = id("end_catacombs");
-        StructureFeature<StructurePoolFeatureConfig> END_TRAIN_FEATURE_CONFIG = new EndCatacombsFeature(StructurePoolFeatureConfig.CODEC);
-        ConfiguredStructureFeature<StructurePoolFeatureConfig, ?> END_TRAIN_FEATURE =
-                END_TRAIN_FEATURE_CONFIG.configure
+        Identifier QUARRY_ID = id("quarry");
+        StructureFeature<StructurePoolFeatureConfig> QUARRY_FEATURE_CONFIG = new EndTowerFeature(StructurePoolFeatureConfig.CODEC);
+        ConfiguredStructureFeature<StructurePoolFeatureConfig, ?> QUARRY_FEATURE =
+                QUARRY_FEATURE_CONFIG.configure
                         (new StructurePoolFeatureConfig(() ->
-                                EndCatacombsGenerator.POOL, 4));
+                                EndTowerGenerator.POOL, 4));
         //registering stuff
-        Registry.register(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, END_TRAIN_ID, END_TRAIN_FEATURE);
-        FabricStructureBuilder.create(END_TRAIN_ID, END_TRAIN_FEATURE_CONFIG)
+        Registry.register(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, QUARRY_ID, QUARRY_FEATURE);
+        FabricStructureBuilder.create(QUARRY_ID, QUARRY_FEATURE_CONFIG)
                 .step(GenerationStep.Feature.SURFACE_STRUCTURES)
-                .defaultConfig(256, 16, 23449)
-                .superflatFeature(END_TRAIN_FEATURE)
+                .defaultConfig(128, 16, 23449)
+                .superflatFeature(QUARRY_FEATURE)
                 .register();
         RegistryKey<ConfiguredStructureFeature<?, ?>> myConfigured = RegistryKey.of(Registry.CONFIGURED_STRUCTURE_FEATURE_KEY,
-                END_TRAIN_ID);
+                QUARRY_ID);
         BiomeModifications.addStructure(BiomeSelectors.foundInTheEnd(), myConfigured);
         //adding it to end only, shall we?
     }
