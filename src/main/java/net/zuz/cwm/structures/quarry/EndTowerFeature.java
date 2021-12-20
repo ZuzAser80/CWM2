@@ -45,7 +45,7 @@ public class EndTowerFeature extends StructureFeature<StructurePoolFeatureConfig
             ///EndCatacombsGenerator.init();
             StructurePoolBasedGenerator.generate(
                     registryManager, config, PoolStructurePiece::new, chunkGenerator, manager,
-                    new BlockPos(pos.getStartX(), chunkGenerator.getHeight(pos.x << 4, pos.z << 4, Heightmap.Type.WORLD_SURFACE_WG, world), pos.getStartZ()),
+                    new BlockPos(pos.getStartX(), 64, pos.getStartZ()),
                     this, this.random, true, false, world
             );
             this.setBoundingBoxFromChildren();
@@ -55,16 +55,16 @@ public class EndTowerFeature extends StructureFeature<StructurePoolFeatureConfig
     //DO NOT TOUCH THIS SHIT
     public static void registry() {
         //values
-        Identifier QUARRY_ID = id("quarry");
+        Identifier QUARRY_ID = id("end_castle");
         StructureFeature<StructurePoolFeatureConfig> QUARRY_FEATURE_CONFIG = new EndTowerFeature(StructurePoolFeatureConfig.CODEC);
         ConfiguredStructureFeature<StructurePoolFeatureConfig, ?> QUARRY_FEATURE =
                 QUARRY_FEATURE_CONFIG.configure
                         (new StructurePoolFeatureConfig(() ->
-                                EndTowerGenerator.POOL, 4));
+                                EndTowerGenerator.POOL, 7));
         //registering stuff
         Registry.register(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, QUARRY_ID, QUARRY_FEATURE);
         FabricStructureBuilder.create(QUARRY_ID, QUARRY_FEATURE_CONFIG)
-                .step(GenerationStep.Feature.SURFACE_STRUCTURES)
+                .step(GenerationStep.Feature.UNDERGROUND_ORES)
                 .defaultConfig(128, 16, 23449)
                 .superflatFeature(QUARRY_FEATURE)
                 .register();

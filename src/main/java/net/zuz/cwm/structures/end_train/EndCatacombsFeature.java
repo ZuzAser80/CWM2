@@ -63,7 +63,7 @@ public class EndCatacombsFeature extends StructureFeature<StructurePoolFeatureCo
         //registering stuff
         Registry.register(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, END_TRAIN_ID, END_TRAIN_FEATURE);
         FabricStructureBuilder.create(END_TRAIN_ID, END_TRAIN_FEATURE_CONFIG)
-                .step(GenerationStep.Feature.SURFACE_STRUCTURES)
+                .step(GenerationStep.Feature.UNDERGROUND_STRUCTURES)
                 .defaultConfig(256, 16, 23449)
                 .superflatFeature(END_TRAIN_FEATURE)
                 .register();
