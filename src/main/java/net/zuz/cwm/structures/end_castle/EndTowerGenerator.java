@@ -1,4 +1,4 @@
-package net.zuz.cwm.structures.quarry;
+package net.zuz.cwm.structures.end_castle;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;

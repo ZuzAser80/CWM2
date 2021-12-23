@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "cwm:raw_end_titanium"
+  },
+  "result": "cwm:end_titanium_ingot",
+  "experience": 0.7,
+  "cookingtime": 100
+}

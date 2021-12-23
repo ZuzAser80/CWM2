@@ -1,4 +1,4 @@
-package net.zuz.cwm.structures.quarry;
+package net.zuz.cwm.structures.end_castle;
 
 import com.mojang.serialization.Codec;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
@@ -16,7 +16,6 @@ import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.HeightLimitView;
-import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
@@ -60,7 +59,7 @@ public class EndTowerFeature extends StructureFeature<StructurePoolFeatureConfig
         ConfiguredStructureFeature<StructurePoolFeatureConfig, ?> QUARRY_FEATURE =
                 QUARRY_FEATURE_CONFIG.configure
                         (new StructurePoolFeatureConfig(() ->
-                                EndTowerGenerator.POOL, 7));
+                                EndTowerGenerator.POOL, 4));
         //registering stuff
         Registry.register(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, QUARRY_ID, QUARRY_FEATURE);
         FabricStructureBuilder.create(QUARRY_ID, QUARRY_FEATURE_CONFIG)

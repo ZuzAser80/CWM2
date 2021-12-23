@@ -2,6 +2,8 @@ package net.zuz.cwm;
 
 import net.fabricmc.api.ModInitializer;
 import net.zuz.cwm.armor.reinforced_iron.ReinforcedIronArmorMaterial;
+import net.zuz.cwm.features.end_titanium.EndTitanium;
+import net.zuz.cwm.features.end_titanium.EndTitaniumOreFeature;
 import net.zuz.cwm.items.materials.Materials;
 import net.zuz.cwm.items.throwing_knife.ThrowingKnife;
 import net.zuz.cwm.items.big_axe.BigAxe;
@@ -18,7 +20,7 @@ import net.zuz.cwm.items.trinkets.RoboticClaw.RoboticClawItem;
 import net.zuz.cwm.items.trinkets.TntFrog.TntFrogItem;
 import net.zuz.cwm.items.trinkets.WarriorSkull.WarriorSkullItem;
 import net.zuz.cwm.structures.end_train.EndCatacombsFeature;
-import net.zuz.cwm.structures.quarry.EndTowerFeature;
+import net.zuz.cwm.structures.end_castle.EndTowerFeature;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -64,5 +66,8 @@ public class CWMMain implements ModInitializer {
 		//EndUfoFeature.registry();
 		EndCatacombsFeature.registry();
 		EndTowerFeature.registry();
+		EndTitanium.registry(tabs.getMaterials());
+		EndTitaniumOreFeature.registry();
+
 	}
 }

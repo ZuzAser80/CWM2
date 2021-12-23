@@ -74,5 +74,14 @@
   "item.cwm.logo_1": "Logo 1",
   "item.cwm.logo_2": "Logo 2",
   "item.cwm.logo_3": "Logo 3",
-  "item.cwm.logo_4": "Logo 4"
+  "item.cwm.logo_4": "Logo 4",
+  "block.cwm.end_titanium_block": "End Titanium Block",
+  "block.cwm.end_titanium_ore": "End Titanium Ore",
+  "item.cwm.raw_end_titanium": "Raw End Titanium",
+  "item.cwm.end_titanium_ingot": "End Titanium Ingot",
+  "item.cwm.end_titanium_axe": "End Titanium Axe",
+  "item.cwm.end_titanium_pickaxe": "End Titanium Pickaxe",
+  "item.cwm.end_titanium_shovel": "End Titanium Shovel",
+  "item.cwm.end_titanium_hoe": "End Titanium Hoe",
+  "item.cwm.end_titanium_sword": "End Titanium Sword"
 }
