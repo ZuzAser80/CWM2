@@ -2,6 +2,7 @@ package net.zuz.cwm;
 
 import net.fabricmc.api.ModInitializer;
 import net.zuz.cwm.armor.reinforced_iron.ReinforcedIronArmorMaterial;
+import net.zuz.cwm.features.end_mushroom.EndMushroomFeature;
 import net.zuz.cwm.features.end_titanium.EndTitanium;
 import net.zuz.cwm.features.end_titanium.EndTitaniumOreFeature;
 import net.zuz.cwm.items.materials.Materials;
@@ -68,6 +69,6 @@ public class CWMMain implements ModInitializer {
 		EndTowerFeature.registry();
 		EndTitanium.registry(tabs.getMaterials());
 		EndTitaniumOreFeature.registry();
-
+		EndMushroomFeature.registry();
 	}
 }
