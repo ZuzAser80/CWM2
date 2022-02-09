@@ -1,6 +1,9 @@
 package net.zuz.cwm.items.throwing_knife;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
@@ -17,6 +20,7 @@ import net.minecraft.loot.LootTables;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.zuz.cwm.items.big_bow.BigBow;
 import net.zuz.cwm.util.EntitySpawnPacket;
 
 import java.util.LinkedHashMap;
@@ -40,18 +44,20 @@ public class ThrowingKnife {
     public static ThrowingKnifeItem NETHERITE_ANCHOR_ITEM;
     public static final EntityType<ThrowingKnifeEntity> NETHERITE_ANCHOR = EntityRegister("netherite_anchor", createAnchor(NETHERITE_ANCHOR_ITEM));
 
+    @Environment(EnvType.CLIENT)
     public static void renderregistry() {
-        EntityModelLayer ANCHOR_LAYER = new EntityModelLayer(new Identifier("cwm:anchor_layer"), "anchor_layer");
-
         ClientPlayNetworking.registerGlobalReceiver(EntitySpawnPacket.ID, EntitySpawnPacket::onPacket);
         //AnchorEntityRenderer
 
-        EntityRendererRegistry.register(WOODEN_ANCHOR, dispatcher -> new ThrowingKnifeEntityRenderer(dispatcher, MinecraftClient.getInstance().getItemRenderer()));
-        EntityRendererRegistry.register(STONE_ANCHOR, dispatcher -> new ThrowingKnifeEntityRenderer(dispatcher, MinecraftClient.getInstance().getItemRenderer()));
-        EntityRendererRegistry.register(IRON_ANCHOR, dispatcher -> new ThrowingKnifeEntityRenderer(dispatcher, MinecraftClient.getInstance().getItemRenderer()));
-        EntityRendererRegistry.register(GOLDEN_ANCHOR, dispatcher -> new ThrowingKnifeEntityRenderer(dispatcher, MinecraftClient.getInstance().getItemRenderer()));
-        EntityRendererRegistry.register(DIAMOND_ANCHOR, dispatcher -> new ThrowingKnifeEntityRenderer(dispatcher, MinecraftClient.getInstance().getItemRenderer()));
-        EntityRendererRegistry.register(NETHERITE_ANCHOR, dispatcher -> new ThrowingKnifeEntityRenderer(dispatcher, MinecraftClient.getInstance().getItemRenderer()));
+        EntityModelLayer TK_LAYER = new EntityModelLayer(new Identifier("cwm:throwing_knife_render_layer"), "throwing_knife_render_layer");
+        EntityModelLayerRegistry.registerModelLayer(TK_LAYER, ThrowingKnifeEntityModel::getTexturedModelData);
+
+        EntityRendererRegistry.register(WOODEN_ANCHOR, ThrowingKnifeEntityRenderer::new);
+        EntityRendererRegistry.register(STONE_ANCHOR, ThrowingKnifeEntityRenderer::new);
+        EntityRendererRegistry.register(IRON_ANCHOR, ThrowingKnifeEntityRenderer::new);
+        EntityRendererRegistry.register(GOLDEN_ANCHOR, ThrowingKnifeEntityRenderer::new);
+        EntityRendererRegistry.register(DIAMOND_ANCHOR, ThrowingKnifeEntityRenderer::new);
+        EntityRendererRegistry.register(NETHERITE_ANCHOR, ThrowingKnifeEntityRenderer::new);
     }
 
     public static void registry(ItemGroup group) {

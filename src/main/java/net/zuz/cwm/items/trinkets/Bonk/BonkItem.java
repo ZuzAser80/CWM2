@@ -4,6 +4,8 @@ import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketItem;
 import dev.emi.trinkets.api.client.TrinketRenderer;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
@@ -42,6 +44,7 @@ public class BonkItem extends TrinketItem implements TrinketRenderer {
     public static BonkItem item;
 
     @Override
+    @Environment(EnvType.CLIENT)
     public void render(ItemStack stack, SlotReference slotReference, EntityModel<? extends LivingEntity> contextModel, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, LivingEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
         BipedEntityModel<LivingEntity> model = this.getModel();
         model.setAngles(entity, limbAngle, limbDistance, animationProgress, animationProgress, headPitch);
@@ -53,7 +56,7 @@ public class BonkItem extends TrinketItem implements TrinketRenderer {
         VertexConsumer vertexConsumer = vertexConsumers.getBuffer(model.getLayer(TEXTURE));
         model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1);
     }
-
+    @Environment(EnvType.CLIENT)
     private BipedEntityModel<LivingEntity> getModel() {
         if (this.model == null) {
             // Vanilla 1.17 uses EntityModels, EntityModelLoader and EntityModelLayers

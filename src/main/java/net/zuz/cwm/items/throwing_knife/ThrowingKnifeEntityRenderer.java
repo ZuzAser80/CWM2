@@ -22,7 +22,7 @@ public class ThrowingKnifeEntityRenderer extends EntityRenderer<ThrowingKnifeEnt
     private static final Map<EntityType<?>, Identifier> TEXTURES = new HashMap<>();
     private final ThrowingKnifeEntityModel model = new ThrowingKnifeEntityModel(ThrowingKnifeEntityModel.getTexturedModelData().createModel());
 
-    public ThrowingKnifeEntityRenderer(EntityRendererFactory.Context context, ItemRenderer itemRenderer) {
+    public ThrowingKnifeEntityRenderer(EntityRendererFactory.Context context) {
         super(context);
     }
 
@@ -36,9 +36,10 @@ public class ThrowingKnifeEntityRenderer extends EntityRenderer<ThrowingKnifeEnt
     @Override
     public void render(ThrowingKnifeEntity tridentEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
         matrixStack.push();
+        VertexConsumer vertexConsumer = ItemRenderer.getDirectItemGlintConsumer(vertexConsumerProvider, this.model.getLayer(this.getTexture(tridentEntity)), false, tridentEntity.isEnchanted());
+
         matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(MathHelper.lerp(g, tridentEntity.prevYaw, tridentEntity.getYaw()) - 90.0F));
         matrixStack.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(MathHelper.lerp(g, tridentEntity.prevPitch, tridentEntity.getPitch()) + 90.0F));
-        VertexConsumer vertexConsumer = ItemRenderer.getDirectItemGlintConsumer(vertexConsumerProvider, this.model.getLayer(this.getTexture(tridentEntity)), false, tridentEntity.isEnchanted());
         this.model.render(matrixStack, vertexConsumer, i, OverlayTexture.DEFAULT_UV, 1.0F, 1.0F, 1.0F, 1.0F);
         matrixStack.pop();
         super.render(tridentEntity, f, g, matrixStack, vertexConsumerProvider, i);

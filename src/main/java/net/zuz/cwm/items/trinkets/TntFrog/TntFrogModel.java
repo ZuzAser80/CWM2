@@ -3,8 +3,9 @@ package net.zuz.cwm.items.trinkets.TntFrog;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 
-public class TntFrogModel extends BipedEntityModel {
+public class TntFrogModel extends BipedEntityModel<LivingEntity> {
     private final ModelPart mainPart;
     private final ModelPart cube_r1;
     private final ModelPart cube_r2;
@@ -28,17 +29,7 @@ public class TntFrogModel extends BipedEntityModel {
         head.addChild("cube_r1", ModelPartBuilder.create().uv(0,0).cuboid(-8.5F, -0.5F, -1.0F, 2.0F, 6.0F, 2.0F).uv(0,0).cuboid(-0.5F, -0.5F, -1.0F, 2.0F, 6.0F, 2.0F), ModelTransform.pivot(3.5F,-13.5F,-1.5F));
         head.addChild("cube_r2", ModelPartBuilder.create().uv(18,8).cuboid(-1.0F, -1.0F, -2.5F, 2.0F, 2.0F, 5.0F).uv(18,8).cuboid(8.0F, -1.0F, -2.5F, 2.0F, 2.0F, 5.0F), ModelTransform.pivot(-4.5F,-10.2399F,3.2177F));
         head.addChild("cube_r3", ModelPartBuilder.create().uv(0,13).cuboid(-1.5F, -1.5F, -2.5F, 3.0F, 3.0F, 5.0F), ModelTransform.pivot(-4.5F,-12.2691F,2.5565F));
-        head.addChild("cube_r4", ModelPartBuilder.create().uv(0,13).cuboid(-1.5F, -1.5F, -3.0F, 3.0F, 3.0F, 5.0F)
-                        .uv(0,21).cuboid(-7.5F, -4F, -5.0F, 6.0F, 4.0F, 7.0F),
-                ModelTransform.pivot(4.5F,-12.5F,3.0F));
+        head.addChild("cube_r4", ModelPartBuilder.create().uv(0,13).cuboid(-1.5F, -1.5F, -3.0F, 3.0F, 3.0F, 5.0F).uv(0,21).cuboid(-7.5F, -4F, -5.0F, 6.0F, 4.0F, 7.0F), ModelTransform.pivot(4.5F,-12.5F,3.0F));
         return TexturedModelData.of(modelData,32,32);
-    }
-    @Override
-    public void setAngles(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
-        this.cube_r1.pitch = -0.4363F;
-        this.cube_r2.pitch = -0.6109F;
-        this.cube_r3.pitch = 0.48F;
-        this.cube_r4.pitch = 0.48F;
-        //previously the render function, render code was moved to a method below
     }
 }

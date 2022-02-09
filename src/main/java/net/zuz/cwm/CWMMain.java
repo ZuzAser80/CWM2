@@ -2,7 +2,6 @@ package net.zuz.cwm;
 
 import net.fabricmc.api.ModInitializer;
 import net.zuz.cwm.armor.reinforced_iron.ReinforcedIronArmorMaterial;
-import net.zuz.cwm.features.end_mushroom.EndMushroomFeature;
 import net.zuz.cwm.features.end_titanium.EndTitanium;
 import net.zuz.cwm.features.end_titanium.EndTitaniumOreFeature;
 import net.zuz.cwm.items.materials.Materials;
@@ -21,7 +20,6 @@ import net.zuz.cwm.items.trinkets.RoboticClaw.RoboticClawItem;
 import net.zuz.cwm.items.trinkets.TntFrog.TntFrogItem;
 import net.zuz.cwm.items.trinkets.WarriorSkull.WarriorSkullItem;
 import net.zuz.cwm.structures.end_train.EndCatacombsFeature;
-import net.zuz.cwm.structures.end_castle.EndTowerFeature;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -46,13 +44,12 @@ public class CWMMain implements ModInitializer {
 		GoldenBeltItem.registry(tabs.getTrinkets());
 		Materials.registry(tabs.getMaterials());
 		BookOfDefenceItem.registry(tabs.getTrinkets());
-		BigBow.predicateregisty();
 		MagmaItem.renderregistry();
 		WarriorSkullItem.renderregistry();
 		MinerHelmetItem.renderregistry();
 		TntFrogItem.renderregistry();
 		PocketShulkerItem.renderregistry();
-		ThrowingKnife.renderregistry();
+		//ThrowingKnife.renderregistry();
 		GoldenBeltItem.renderregistry();
 		BookOfDefenceItem.renderregistry();
 		BookOfAttackItem.registry(tabs.getTrinkets());
@@ -60,15 +57,13 @@ public class CWMMain implements ModInitializer {
 		RoboticClawItem.registry(tabs.getTrinkets());
 		RoboticClawItem.renderregistry();
 		BonkItem.registry(tabs.getTrinkets());
-		BonkItem.renderregistry();
 		ItemTabs.logo();
 		ReinforcedIronArmorMaterial.registry(tabs.getMaterials(), tabs.getArmor());
 		//NetherShipFeature.registry();
 		//EndUfoFeature.registry();
 		EndCatacombsFeature.registry();
-		EndTowerFeature.registry();
+		//EndTowerFeature.registry();
 		EndTitanium.registry(tabs.getMaterials());
 		EndTitaniumOreFeature.registry();
-		EndMushroomFeature.registry();
 	}
 }

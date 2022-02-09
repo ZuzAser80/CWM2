@@ -1,5 +1,7 @@
 package net.zuz.cwm.items.big_bow;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
@@ -50,6 +52,7 @@ public class BigBow {
             }
         });
     }
+    @Environment(EnvType.CLIENT)
     public static void predicateregisty()
     {
         FabricModelPredicateProviderRegistry.register(NETHERITE_BOW_ITEM, new Identifier("pull"), (stack, world, entity, seed) -> {
