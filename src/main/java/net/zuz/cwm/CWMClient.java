@@ -13,7 +13,6 @@ import net.zuz.cwm.util.EntitySpawnPacket;
 public class CWMClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        ThrowingKnife.renderregistry();
         ClientPlayNetworking.registerGlobalReceiver(EntitySpawnPacket.ID, EntitySpawnPacket::onPacket);
         ServerPlayNetworking.registerGlobalReceiver(BonkC2SPacket.ID, BonkC2SPacket::onPacket);
         BonkC2SPacket.Keybind();

@@ -49,15 +49,14 @@ public class ThrowingKnife {
         ClientPlayNetworking.registerGlobalReceiver(EntitySpawnPacket.ID, EntitySpawnPacket::onPacket);
         //AnchorEntityRenderer
 
-        EntityModelLayer TK_LAYER = new EntityModelLayer(new Identifier("cwm:throwing_knife_render_layer"), "throwing_knife_render_layer");
-        EntityModelLayerRegistry.registerModelLayer(TK_LAYER, ThrowingKnifeEntityModel::getTexturedModelData);
-
         EntityRendererRegistry.register(WOODEN_ANCHOR, ThrowingKnifeEntityRenderer::new);
         EntityRendererRegistry.register(STONE_ANCHOR, ThrowingKnifeEntityRenderer::new);
         EntityRendererRegistry.register(IRON_ANCHOR, ThrowingKnifeEntityRenderer::new);
         EntityRendererRegistry.register(GOLDEN_ANCHOR, ThrowingKnifeEntityRenderer::new);
         EntityRendererRegistry.register(DIAMOND_ANCHOR, ThrowingKnifeEntityRenderer::new);
         EntityRendererRegistry.register(NETHERITE_ANCHOR, ThrowingKnifeEntityRenderer::new);
+        EntityModelLayer TK_LAYER = new EntityModelLayer(new Identifier("cwm:throwing_knife_render_layer"), "throwing_knife_render_layer");
+        EntityModelLayerRegistry.registerModelLayer(TK_LAYER, ThrowingKnifeEntityModel::getTexturedModelData);
     }
 
     public static void registry(ItemGroup group) {
