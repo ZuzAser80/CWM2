@@ -49,7 +49,7 @@ public class RoboticClawItem extends TrinketItem implements TrinketRenderer {
     public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
         entity.addStatusEffect(new StatusEffectInstance(StatusEffects.SATURATION,400,0, true, false));
     }
-    //TODO: custom keybind + laser? Keybind = not impossible. Laser?
+    //TODO: custom keybind + laser? Keybind = not impossible. Laser? not yet
     public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack, SlotReference slot, LivingEntity entity, UUID uuid) {
         var modifiers = super.getModifiers(stack, slot, entity, uuid);
         modifiers.put(ReachEntityAttributes.REACH, new EntityAttributeModifier(uuid, "bookofdefenceboost", 4, EntityAttributeModifier.Operation.ADDITION));

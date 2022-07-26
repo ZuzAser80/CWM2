@@ -86,6 +86,5 @@ public class MagmaItem extends TrinketItem implements TrinketRenderer {
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         tooltip.add(new TranslatableText("item.cwm.magma.tooltip").formatted(Formatting.YELLOW));
         tooltip.add(new TranslatableText("item.cwm.magma.tooltip_1").formatted(Formatting.YELLOW));
-
     }
 }

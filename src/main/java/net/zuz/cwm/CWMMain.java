@@ -49,7 +49,6 @@ public class CWMMain implements ModInitializer {
 		MinerHelmetItem.renderregistry();
 		TntFrogItem.renderregistry();
 		PocketShulkerItem.renderregistry();
-		//ThrowingKnife.renderregistry();
 		GoldenBeltItem.renderregistry();
 		BookOfDefenceItem.renderregistry();
 		BookOfAttackItem.registry(tabs.getTrinkets());
@@ -59,10 +58,7 @@ public class CWMMain implements ModInitializer {
 		BonkItem.registry(tabs.getTrinkets());
 		ItemTabs.logo();
 		ReinforcedIronArmorMaterial.registry(tabs.getMaterials(), tabs.getArmor());
-		//NetherShipFeature.registry();
-		//EndUfoFeature.registry();
 		EndCatacombsFeature.registry();
-		//EndTowerFeature.registry();
 		EndTitanium.registry(tabs.getMaterials());
 		EndTitaniumOreFeature.registry();
 	}
